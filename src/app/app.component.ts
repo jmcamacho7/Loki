@@ -10,7 +10,6 @@ export class AppComponent {
 }
 
 import { IonicModule } from '@ionic/angular';
-
 @NgModule({
   imports: [IonicModule],
 })
