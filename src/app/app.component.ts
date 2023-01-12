@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,3 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Loki';
 }
+
+import { IonicModule } from '@ionic/angular';
+
+@NgModule({
+  imports: [IonicModule],
+})
+export class AppModule {}
+
