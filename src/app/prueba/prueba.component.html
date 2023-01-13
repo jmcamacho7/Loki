@@ -1,0 +1,38 @@
+<head>
+  <link rel="stylesheet" href="prueba.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Inicio de sesión en la red social</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Iniciar sesión</h5>
+          <form class="form-signin">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de correo electrónico" required autofocus>
+              <label for="inputEmail">Dirección de correo electrónico</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+              <label for="inputPassword">Contraseña</label>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Recuérdame</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar sesión</button>
+            <hr class="my-4">
+            <button class="btn btn-sm btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Iniciar sesión con Google</button>
+            <button class="btn btn-sm btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Iniciar sesión con Facebook</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

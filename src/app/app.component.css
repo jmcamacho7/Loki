@@ -1,0 +1,78 @@
+/* Estilo para la barra de navegación lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Asegura que la barra de navegación permanezca encima del contenido */
+  padding: 48px 0 0; /* Espacio entre la barra de navegación */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  background-color: #87CEFA; /* tono azul pastel */
+  color: #fff; /* color de las letras */
+  text-align: center; /* centrar elementos */
+}
+
+/* Estilo para los elementos de la barra de navegación */
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Permite el scroll en caso de contenido demasiado largo */
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para los enlaces en la barra de navegación */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: .75rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+/* Estilo para el enlace activo en la barra de navegación */
+.nav-link.active {
+  color: #007bff;
+}
+
+/* Estilo para la barra de navegación lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Asegura que la barra de navegación permanezca encima del contenido */
+  padding: 48px 0 0; /* Espacio entre la barra de navegación */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  background-color: #87CEFA; /* Tono azul pastel para el fondo */
+  color: white; /* Cambia el color de las letras */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo para los elementos de la barra de navegación */
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Permite el scroll en caso de contenido demasiado largo */
+}
+
+/* Estilo para los enlaces en la barra de navegación */
+.nav-link {
+  padding: .75rem;
+  font-weight: 500;
+}
+
+/* Estilo para el enlace activo en la barra de navegación */
+.nav-link.active {
+  color: white;
+  background-color: #007bff;
+  padding: .75rem;
+}
+
