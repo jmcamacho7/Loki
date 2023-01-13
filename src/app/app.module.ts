@@ -8,19 +8,22 @@ import { InicioComponent } from './inicio/inicio.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesComponent } from './heroes/heroes.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
     InicioComponent,
-    HeroesComponent
+    HeroesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: 'inicio', component: InicioComponent},
       {path: 'inicio-sesion', component: PruebaComponent},
+      {path: 'home', component: HomeComponent},
     ]),
     IonicModule,
     AppRoutingModule
