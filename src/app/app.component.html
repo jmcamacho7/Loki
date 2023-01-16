@@ -1,54 +1,39 @@
 <head>
   <link rel="stylesheet" href="app.component.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script>
+    function toggleSidebar() {
+    var sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('show');
+  }
+
+  </script>
 </head>
 <body>
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/inicio-sesion">
-              <span data-feather="home"></span>
-              Inicio <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/inicio">
-              <span data-feather="file"></span>
-              Mensajes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home">
-              <span data-feather="shopping-cart"></span>
-              Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Amigos
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Estadísticas
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Configuración
-            </a>
-          </li>
-        </ul>
+    <div class="col-sm-3 col-md-2 sidebar">
+      <div class="profile-picture-container">
+        <img src="https://i.pinimg.com/474x/1f/dd/1f/1fdd1f565711ac4a9fc5c9c02b4c039e.jpg" class="profile-picture">
+        <h4 class="username">@follacamiones24</h4>
       </div>
-    </nav>
+      <nav class="nav flex-column">
+        <a class="nav-link" routerLink="/inicio-sesion">Inicio</a>
+        <a class="nav-link" routerLink="/home">Explorar</a>
+        <a class="nav-link" routerLink="/inicio">Notificaciones</a>
+        <a class="nav-link" href="#">Mensajes</a>
+        <a class="nav-link" href="#">Bookmarks</a>
+        <a class="nav-link" href="#">Listas</a>
+        <a class="nav-link" href="#">Perfil</a>
+        <a class="nav-link" href="#">Más</a>
+      </nav>
+    </div>
   </div>
 </div>
+<button class="menu-btn" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</button>
+
 </body>
 
 <router-outlet></router-outlet>
