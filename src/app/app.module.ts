@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroesComponent } from './heroes/heroes.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
     PruebaComponent,
     InicioComponent,
     HeroesComponent,
-    HomeComponent
+    HomeComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { HomeComponent } from './home/home.component';
       {path: 'inicio', component: InicioComponent},
       {path: 'inicio-sesion', component: PruebaComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'perfil', component: PerfilComponent},
     ]),
     IonicModule,
     AppRoutingModule
