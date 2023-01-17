@@ -1,0 +1,130 @@
+/* Estilo para el contenedor principal */
+.main-content {
+  width: 75%;
+  margin: 0 auto;
+  margin-left: 25%;
+}
+
+#foto{
+  background-image: url("https://i.pinimg.com/originals/92/3a/33/923a3392cf9339eb3fb156ec37daa818.jpg") ;
+}
+
+#datos {
+  margin-left: 52vh;
+}
+
+.biografia{
+  background-color: white;
+  width: 100vh;
+  border-radius:
+  10px; padding: 10px;
+  margin-top: 20px;
+}
+
+#texto-bio{
+  width: 85vh;
+}
+
+/* Estilo para la sección de perfil */
+.profile-picture {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.username {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.name {
+  margin-top: 5px;
+}
+
+.bio {
+  margin-top: 10px;
+  color: gray;
+  width: 100vh;
+}
+
+/* Estilo para la navegación */
+nav {
+  margin-top: 20px;
+}
+
+/* Estilo para los tweets */
+.tweet-container {
+  margin-top: 20px;
+}
+
+.tweet {
+  margin-bottom: 20px;
+}
+
+.tweet-text {
+  margin-bottom: 5px;
+}
+
+/* Estilo para el texto pequeño */
+.text-muted {
+  font-size: 12px;
+  color: gray;
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .main-content {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .profile-picture{
+    width:25%;
+    height: auto;
+  }
+  #datos {
+    margin-left: 0vh;
+    border-radius: 10px;
+  }
+  .biografia{
+    background-color: white;
+    width: 65vh;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  #texto-bio{
+    width: 45vh;
+  }
+}
+
+/* Estilo para pantallas medianas */
+@media (min-width: 768px) and (max-width: 992px) {
+  .main-content {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .profile-picture{
+    width:50%;
+    height: auto;
+  }
+  #datos {
+    margin-left: 25vh;
+    border-radius: 10px;
+  }
+  .biografia{
+    background-color: white;
+    width: 65vh;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  #texto-bio{
+    width: 55vh;
+  }
+}
+
+/* Estilo para pantallas grandes */
+@media (min-width: 992px) {
+  .main-content {
+    width: 75%;
+  }
+}
