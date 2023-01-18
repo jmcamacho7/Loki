@@ -33,6 +33,13 @@
   color: lightcoral;
 }
 
+#barra{
+  display:flex;
+  flex-direction:row;
+}
+li{
+  display: inline;
+}
 @media (max-width: 768px) {
 
 }
@@ -43,6 +50,12 @@
     border-right: none;
     border-bottom: 1px solid #ddd;
     width: 100%;
+    display: none;
+  }
+}
+@media (min-width: 990px) {
+  #barra {
+    display: none;
   }
 }
 

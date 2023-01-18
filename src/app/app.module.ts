@@ -10,6 +10,15 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import {
+  FontAwesomeModule,
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import {
+  faStackOverflow,
+  faGithub,
+  faMedium,
+} from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -29,9 +38,18 @@ import { PerfilComponent } from './perfil/perfil.component';
       {path: 'perfil', component: PerfilComponent},
     ]),
     IonicModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faStackOverflow,
+      faGithub,
+      faMedium
+    );
+  }
+}
