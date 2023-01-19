@@ -20,6 +20,14 @@ import {
   faMedium,
 } from '@fortawesome/free-brands-svg-icons';
 
+import {
+  faHome,
+  faMessage,
+  faBell,
+  faWrench,
+  faPerson,
+} from '@fortawesome/free-solid-svg-icons';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +57,12 @@ export class AppModule {
     library.addIcons(
       faStackOverflow,
       faGithub,
-      faMedium
+      faMedium,
+      faHome,
+      faBell,
+      faWrench,
+      faMessage,
+      faPerson
     );
   }
 }
