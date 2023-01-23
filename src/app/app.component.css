@@ -8,7 +8,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   border-right: 1px solid #ddd;
-  background-color: #191922;
+  background-color: whitesmoke;
 }
 .profile-picture-container {
   text-align: center;
@@ -50,11 +50,6 @@ li{
     border-right: none;
     border-bottom: 1px solid #ddd;
     width: 100%;
-    display: none;
-  }
-}
-@media (min-width: 990px) {
-  #barra {
     display: none;
   }
 }

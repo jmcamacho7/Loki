@@ -5,13 +5,25 @@
 
 
 <body>
+<div id="test">
+  <p>aparesco</p>
+</div>
 <div class="container-fluid">
-  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <main role="main" class=".justify-content-center col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin: 0">
       <h1 class="h2">Feed de Tweets</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-          <button type="button" class="btn btn-sm btn-outline-secondary">Nuevo Tweet</button>
+          <button type="button" id="prueba" class="btn btn-sm btn-outline-secondary">Nuevo Tweet</button>
+          <script>
+            document.getElementById("test").style.display ="none";
+
+            function openTest() {
+              document.getElementById("test").style.display = "block";
+            }
+
+            document.getElementById('prueba').addEventListener('click', openTest);
+          </script>
         </div>
       </div>
     </div>
@@ -21,8 +33,8 @@
           <img src="https://i.pinimg.com/474x/1f/dd/1f/1fdd1f565711ac4a9fc5c9c02b4c039e.jpg" class="profile-picture">
           <div class="tweet-info">
             <h4 class="name">Xokas</h4>
-            <p class="username">@follacamiones24</p>
-            <p class="tweet-text">Me pica el escroto una jartá.</p>
+            <p class="username">@xokas</p>
+            <p class="tweet-text">hola</p>
             <small class="text-muted">Publicado hace 1 minuto</small>
           </div>
         </div>
