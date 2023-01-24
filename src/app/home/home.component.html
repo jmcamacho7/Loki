@@ -3,27 +3,17 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
-
-<body>
-<div id="test">
-  <p>aparesco</p>
+<div id="prueba">
+  <p>hola</p>
 </div>
+<body>
 <div class="container-fluid">
   <main role="main" class=".justify-content-center col-lg-10 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin: 0">
       <h1 class="h2">Feed de Tweets</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-          <button type="button" id="prueba" class="btn btn-sm btn-outline-secondary">Nuevo Tweet</button>
-          <script>
-            document.getElementById("test").style.display ="none";
-
-            function openTest() {
-              document.getElementById("test").style.display = "block";
-            }
-
-            document.getElementById('prueba').addEventListener('click', openTest);
-          </script>
+          <button type="button" id="boton" class="btn btn-sm btn-outline-secondary" (click)="botonprueba()">Nuevo Tweet</button>
         </div>
       </div>
     </div>

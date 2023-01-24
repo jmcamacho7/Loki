@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HeroesComponent {
 
+  pruebacirculo (){
+    const circulo:any = document.getElementById('circle')
+    circulo.style.display = "none";
+  }
+  aparecercirculo(){
+    const circulo:any = document.getElementById('circle')
+    var tipoDisplay = circulo.style.display;
+    document.write(tipoDisplay);
+
+
+  }
 }

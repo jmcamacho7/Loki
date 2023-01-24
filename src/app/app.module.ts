@@ -44,6 +44,7 @@ import {
       {path: 'inicio-sesion', component: PruebaComponent},
       {path: 'home', component: HomeComponent},
       {path: 'perfil', component: PerfilComponent},
+      {path: 'heroes', component: HeroesComponent}
     ]),
     IonicModule,
     AppRoutingModule,
