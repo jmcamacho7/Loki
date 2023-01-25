@@ -26,6 +26,9 @@ import {
   faBell,
   faWrench,
   faPerson,
+  faPlus,
+  faShare,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -63,7 +66,10 @@ export class AppModule {
       faBell,
       faWrench,
       faMessage,
-      faPerson
+      faPerson,
+      faPlus,
+      faShare,
+      faXmark
     );
   }
 }

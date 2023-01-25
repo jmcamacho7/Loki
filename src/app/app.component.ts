@@ -9,13 +9,23 @@ import {PruebaComponent} from "./prueba/prueba.component";
 })
 export class AppComponent {
   title = 'Loki';
+  abrirTidal(){
+    const tidal:any = document.getElementById('escribir');
+    tidal.style.display = 'block';
+  }
+  cerrarTidal(){
+    const tidal:any = document.getElementById('escribir');
+    tidal.style.display = 'none';
+  }
 }
 
 import { IonicModule } from '@ionic/angular';
 @NgModule({
   imports: [IonicModule],
 })
-export class AppModule {}
+export class AppModule {
+
+}
 
 
 
