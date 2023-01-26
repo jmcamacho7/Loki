@@ -37,11 +37,19 @@
 </head>
 
 <body>
+<div *ngIf="login!=null; else espera">
+  <table border="1">
+    <tr>
+      <td>ID</td><td>Email</td><td>Password</td><td>Rol</td>
+    </tr>
+    <tr *ngFor="let art of login">
+      <td>{{art.email}}</td>
+      <td>{{art.rol}}</td>
+    </tr>
+  </table>
+</div>
+<ng-template #espera >Esperando datos...</ng-template>
 
-<div class="circle" id="circle" (click)="pruebacirculo()"></div>
-<button (click)="aparecercirculo()">Click</button>
-<div class="rounded" id="rounded"></div>
-<div class="square" id="square"></div>
 
 
 

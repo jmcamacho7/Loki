@@ -2,6 +2,7 @@ import {Component, NgModule} from '@angular/core';
 import {InicioComponent} from "./inicio/inicio.component";
 import {PruebaComponent} from "./prueba/prueba.component";
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

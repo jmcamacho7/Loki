@@ -10,26 +10,10 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import {
-  FontAwesomeModule,
-  FaIconLibrary,
-} from '@fortawesome/angular-fontawesome';
-import {
-  faStackOverflow,
-  faGithub,
-  faMedium,
-} from '@fortawesome/free-brands-svg-icons';
-
-import {
-  faHome,
-  faMessage,
-  faBell,
-  faWrench,
-  faPerson,
-  faPlus,
-  faShare,
-  faXmark
-} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeModule, FaIconLibrary,} from '@fortawesome/angular-fontawesome';
+import {faStackOverflow, faGithub, faMedium,} from '@fortawesome/free-brands-svg-icons';
+import {HttpClientModule} from '@angular/common/http';
+import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark} from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -51,7 +35,8 @@ import {
     ]),
     IonicModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
