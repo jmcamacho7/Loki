@@ -18,7 +18,6 @@ export class HeroesComponent {
       .subscribe(
         resultado => {
           this.login = resultado;
-          document.write(this.login);
         }
       );
   }

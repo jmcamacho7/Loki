@@ -10,42 +10,19 @@
       <h1 class="h2">Feed de Tweets</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-          <button type="button" id="boton" class="btn btn-sm btn-outline-secondary" (click)="botonprueba()">Nuevo Tweet</button>
+          <button type="button" id="boton" class="btn btn-sm btn-outline-secondary">Nuevo Tweet</button>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngFor="let art of publicacion">
       <div class="container">
         <div class="tweet" style="background: white !important;">
           <img src="https://i.pinimg.com/474x/1f/dd/1f/1fdd1f565711ac4a9fc5c9c02b4c039e.jpg" class="profile-picture">
           <div class="tweet-info">
-            <h4 class="name">Xokas</h4>
-            <p class="username">@xokas</p>
-            <p class="tweet-text">hola</p>
-            <small class="text-muted">Publicado hace 1 minuto</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="tweet" style="background: white;">
-          <img src="https://i.pinimg.com/474x/1f/dd/1f/1fdd1f565711ac4a9fc5c9c02b4c039e.jpg" class="profile-picture">
-          <div class="tweet-info">
-            <h4 class="name">Nombre</h4>
-            <p class="username">@Narcicista12</p>
-            <p class="tweet-text">El de arriba es un poco tonto. Madre mía la de cosas que hay que leer...</p>
-            <small class="text-muted">Publicado hace 15 segundos</small>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="tweet" style="background: white;">
-          <img src="https://pbs.twimg.com/media/EN2boeYX0AMim3c?format=jpg&name=360x360" class="profile-picture">
-          <div class="tweet-info">
-            <h4 class="name">Willyrex</h4>
-            <p class="username">@Willy</p>
-            <p class="tweet-text">ey muy buenas a todos wapismoss</p>
-            <small class="text-muted">Publicado hace 15 segundos</small>
+            <h4 class="name">{{art.usuarioId.nombre}}</h4>
+            <p class="username">{{art.usuarioId.usuario}}</p>
+            <p class="tweet-text">{{art.texto}}</p>
+            <small class="text-muted">{{art.fecha}}</small>
           </div>
         </div>
       </div>

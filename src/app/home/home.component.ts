@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {style} from "@angular/animations";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import {style} from "@angular/animations";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  botonprueba(){
-    document.write('estoy hasta la polla')
+
+  publicacion: any;
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.http.get("http://localhost:8000/publicacion/list")
+      .subscribe(
+        resultado => {
+          this.publicacion = resultado;
+        }
+      );
   }
+
+
 }
 
 
