@@ -14,6 +14,7 @@ import {FontAwesomeModule, FaIconLibrary,} from '@fortawesome/angular-fontawesom
 import {faStackOverflow, faGithub, faMedium,} from '@fortawesome/free-brands-svg-icons';
 import {HttpClientModule} from '@angular/common/http';
 import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark}
     IonicModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

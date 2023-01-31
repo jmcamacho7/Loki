@@ -16,10 +16,10 @@
       <h6 class="mb-0">¿En qué piensas ahora?</h6>
       <small class="px-3">Cuéntale al mundo qué andas haciendo.</small>
       <div class="form-group mt-4">
-        <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+        <input class="form-control" rows="4" placeholder="Message" type="text" [(ngModel)]="art.texto" />
       </div>
       <div class="mt-2">
-        <button type="button" class="btn btn-primary btn-block"><span><fa-icon [icon]="['fas', 'share']" style="color: whitesmoke"></fa-icon> </span></button>
+        <button type="button" class="btn btn-primary btn-block" (click)="guardarPubli()"><span><fa-icon [icon]="['fas', 'share']" style="color: whitesmoke"></fa-icon> </span></button>
       </div>
     </div>
   </div>

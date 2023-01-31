@@ -4,8 +4,8 @@
 </head>
 <body>
 
-<div class="container-fluid">
-  <main role="main" class=".justify-content-center col-lg-10 px-4">
+<div class="container-fluid" id="cuerpo">
+  <main role="main" class=".justify-content-center">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin: 0">
       <h1 class="h2">Feed de Tweets</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
@@ -14,19 +14,28 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngFor="let art of publicacion">
-      <div class="container">
-        <div class="tweet" style="background: white !important;">
-          <img src="https://i.pinimg.com/474x/1f/dd/1f/1fdd1f565711ac4a9fc5c9c02b4c039e.jpg" class="profile-picture">
-          <div class="tweet-info">
-            <h4 class="name">{{art.usuarioId.nombre}}</h4>
-            <p class="username">{{art.usuarioId.usuario}}</p>
-            <p class="tweet-text">{{art.texto}}</p>
-            <small class="text-muted">{{art.fecha}}</small>
+    <div *ngIf="publicacion!=null; else espera">
+      <div class="row" *ngFor="let art of publicacion">
+        <div class="container">
+          <div class="tweet">
+            <img src="https://i.pinimg.com/474x/1f/dd/1f/1fdd1f565711ac4a9fc5c9c02b4c039e.jpg" class="profile-picture">
+            <div class="tweet-info">
+              <h4 class="name">{{art.usuarioId.nombre}}</h4>
+              <p class="username">{{art.usuarioId.usuario}}</p>
+              <p class="tweet-text">{{art.texto}}</p>
+              <small class="text-muted">{{art.fecha}}</small>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <ng-template #espera >
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    </ng-template>
   </main>
 </div>
 </body>

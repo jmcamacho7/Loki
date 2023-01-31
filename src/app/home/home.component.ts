@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {style} from "@angular/animations";
 import {HttpClient} from "@angular/common/http";
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,8 +22,6 @@ export class HomeComponent {
         }
       );
   }
-
-
 }
 
 
