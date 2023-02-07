@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {IonicModule} from "@ionic/angular";
-import { PruebaComponent } from './prueba/prueba.component';
-import { InicioComponent } from './inicio/inicio.component';
+import { PruebaComponent } from './iniciosesion/prueba.component';
+import { InicioComponent } from './registro/inicio.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesComponent } from './heroes/heroes.component';
 import { RouterModule } from '@angular/router';
@@ -28,7 +28,7 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'inicio', component: InicioComponent},
+      {path: 'registro', component: InicioComponent},
       {path: 'inicio-sesion', component: PruebaComponent},
       {path: 'home', component: HomeComponent},
       {path: 'perfil', component: PerfilComponent},
