@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {style} from "@angular/animations";
 import {HttpClient} from "@angular/common/http";
+import {HomeService} from "./home.service";
 
 
 @Component({
@@ -9,7 +10,6 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
   publicacion: any;
 
   constructor(private http: HttpClient) { }
@@ -22,7 +22,12 @@ export class HomeComponent {
         }
       );
   }
-}
+
+
+
+  }
+
+
 
 
 

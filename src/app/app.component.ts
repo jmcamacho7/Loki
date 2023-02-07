@@ -2,6 +2,8 @@ import {Component, NgModule} from '@angular/core';
 import {InicioComponent} from "./inicio/inicio.component";
 import {PruebaComponent} from "./prueba/prueba.component";
 import {AppService} from "./app.service";
+import {HomeComponent} from "./home/home.component";
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 
 @Component({
@@ -20,27 +22,28 @@ export class AppComponent {
     tidal.style.display = 'none';
   }
 
-  publicacion:any;
-
   art={
     usuario_id:2,
     texto:"",
     foto:"https://i.imgur.com/mT0MaAc.jpeg"
   }
-  constructor(private AppServicio: AppService) { }
+  constructor(private http: HttpClient) { }
 
   guardarPubli(){
-    let usuario = 2;
-    let mensaje = (<HTMLInputElement>document.getElementById("mensaje")).value;
-    let profilepic = 'https://i.imgur.com/mT0MaAc.jpeg';
-    this.AppServicio.guardarPublicacion(this.art).subscribe((datos:any) => {
-    });
+    const headers = new HttpHeaders()
+    const body = JSON.stringify({'usuario_id':this.art.usuario_id,
+      'texto':this.art.texto,
+      'foto':'https://i.imgur.com/mT0MaAc.jpeg'})
+    console.log(body)
+    const params = new HttpParams()
+    this.http.post('http://localhost:8000/publicacion/save', body, {headers: headers, params: params})
+      .subscribe((res) => console.log(res))
+    alert('Mensaje enviado')
   }
 
 }
 
 import { IonicModule } from '@ionic/angular';
-import {HttpClient} from "@angular/common/http";
 @NgModule({
   imports: [IonicModule],
 })

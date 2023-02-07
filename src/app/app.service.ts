@@ -5,10 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AppService {
-  url='http://localhost:8000/'
+
+  url ='http://localhost:8000/'
   constructor(private http: HttpClient) { }
 
   guardarPublicacion(publicacion:any){
-    return this.http.post(`${this.url}publicacion/save`, JSON.stringify(publicacion));
+    this.http.post(`http://localhost:8000/publicacion/save`, JSON.stringify(publicacion)).subscribe(
+      resultado => {
+        console.log(resultado);
+      }
+    );
   }
 }
