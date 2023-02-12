@@ -1,8 +1,8 @@
 import {Component, NgModule} from '@angular/core';
-import {InicioComponent} from "./registro/inicio.component";
-import {PruebaComponent} from "./iniciosesion/prueba.component";
+import {InicioComponent} from "./views/pages/registro/inicio.component";
+import {PruebaComponent} from "./views/pages/iniciosesion/prueba.component";
 import {AppService} from "./app.service";
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from "./views/pages/home/home.component";
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 
