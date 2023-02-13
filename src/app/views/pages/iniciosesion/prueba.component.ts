@@ -9,6 +9,7 @@ import {AuthRequest} from "../../../shared/models/auth.request";
 import {AuthResponse} from "../../../shared/models/auth.response";
 import {delay} from "rxjs";
 
+
 @Component({
   selector: 'app-iniciosesion',
   templateUrl: './prueba.component.html',
@@ -32,9 +33,7 @@ export class PruebaComponent {
     this.password = target.value;
   }
 
-  delay(time:any) {
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
+
 
   login() {
     const body = JSON.stringify({
@@ -49,6 +48,15 @@ export class PruebaComponent {
         // @ts-ignore
      this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
     console.log(localStorage.getItem('token'))
+
+    setTimeout(() => {
+      console.log('sleep');
+      this.http.post<AuthResponse>("http://localhost:8000/login", body, {'headers':headers,'params':params})
+        .subscribe(data =>
+          // @ts-ignore
+          this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
+      console.log(localStorage.getItem('token'))
+    }, 3000);
   }
 
 
