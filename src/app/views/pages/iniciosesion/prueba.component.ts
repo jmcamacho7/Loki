@@ -43,7 +43,7 @@ export class PruebaComponent {
     let tokencito:string = ''
     const params = new HttpParams();
     const headers = new HttpHeaders();
-    this.http.post<AuthResponse>("http://localhost:8000/login", body, {'headers':headers,'params':params})
+    this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
       .subscribe(data =>
         // @ts-ignore
      this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
@@ -51,7 +51,7 @@ export class PruebaComponent {
 
     setTimeout(() => {
       console.log('sleep');
-      this.http.post<AuthResponse>("http://localhost:8000/login", body, {'headers':headers,'params':params})
+      this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
         .subscribe(data =>
           // @ts-ignore
           this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));

@@ -15,7 +15,7 @@ export class HomeComponent {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:8000/publicacion/list")
+    this.http.get("http://localhost:8000/api/publicacion/list")
       .subscribe(
         resultado => {
           this.publicacion = resultado;

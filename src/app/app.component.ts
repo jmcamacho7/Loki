@@ -12,6 +12,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'Loki';
   abrirTidal(){
     const tidal:any = document.getElementById('escribir');
@@ -22,12 +23,18 @@ export class AppComponent {
     tidal.style.display = 'none';
   }
 
+  router: string;
+
+
+
   art={
     usuario_id:2,
     texto:"",
     foto:"https://i.imgur.com/mT0MaAc.jpeg"
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _router: Router) {
+    this.router = _router.url;
+  }
 
   guardarPubli(){
     const headers = new HttpHeaders()
@@ -36,7 +43,7 @@ export class AppComponent {
       'foto':'https://i.imgur.com/mT0MaAc.jpeg'})
     console.log(body)
     const params = new HttpParams()
-    this.http.post('http://localhost:8000/publicacion/save', body, {headers: headers, params: params})
+    this.http.post('http://localhost:8000/api/publicacion/save', body, {headers: headers, params: params})
       .subscribe((res) => console.log(res))
     alert('Mensaje enviado')
   }
@@ -44,6 +51,7 @@ export class AppComponent {
 }
 
 import { IonicModule } from '@ionic/angular';
+import {Router} from "@angular/router";
 @NgModule({
   imports: [IonicModule],
 })

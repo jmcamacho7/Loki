@@ -26,7 +26,7 @@ export class InicioComponent {
       'password':this.nuevo.password})
     console.log(body)
     const params = new HttpParams()
-    this.http.post('http://localhost:8000/usuario/registrar', body, {headers: headers, params: params})
+    this.http.post('http://localhost:8000/api/usuario/registrar', body, {headers: headers, params: params})
       .subscribe((res) => console.log(res))
     const logro:any = document.getElementById('logro');
     logro.style.display = 'block';
