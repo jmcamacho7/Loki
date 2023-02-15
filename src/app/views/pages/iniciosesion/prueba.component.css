@@ -98,7 +98,6 @@ body{
 
 #logro{
   z-index: 2;
-  display: none;
-  left: 50%;
-  transform: translate(-50%, 20%);
+  display: block;
+  position: fixed;
 }
