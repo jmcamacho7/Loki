@@ -33,44 +33,45 @@ export class PruebaComponent {
     this.password = target.value;
   }
 
+  async login() {
+    let prueba = await this.prometo();
+    console.log(prueba);
 
+    // setTimeout(() => {
+    //   console.log('sleep');
+    //   this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
+    //     .subscribe( data =>
+    //       // @ts-ignore
+    //       this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
+    //   console.log(localStorage.getItem('token'))
+    // },3000);
 
-  login() {
-    const body = JSON.stringify({
-      "usuario":"juanma",
-      "password":"1234"});
-    console.log(body);
-    let tokencito:string = ''
-    const params = new HttpParams();
-    const headers = new HttpHeaders();
-    this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
-      .subscribe(data =>
-        // @ts-ignore
-     this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-    console.log(localStorage.getItem('token'))
-
-    setTimeout(() => {
-      console.log('sleep');
-      this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
-        .subscribe(data =>
-          // @ts-ignore
-          this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-      console.log(localStorage.getItem('token'))
-    },3000);
-
-    const tokencitoFinal:string = localStorage.get('token')
-    while(tokencitoFinal == 'undefined'){
-      setTimeout(() => {
-        console.log('sleep');
-        this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
-          .subscribe(data =>
-            // @ts-ignore
-            this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-        console.log(localStorage.getItem('token'))
-      },2000);
-      tokencitoFinal = localStorage.get('token');
-    }
+    // const tokencitoFinal:string = localStorage.get('token')
+    // while(tokencitoFinal == 'undefined'){
+    //   setTimeout(() => {
+    //     console.log('sleep');
+    //     this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
+    //       .subscribe(data =>
+    //         // @ts-ignore
+    //         this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
+    //     console.log(localStorage.getItem('token'))
+    //   },2000);
+    //   tokencitoFinal = localStorage.get('token');
+    // }
   }
+async prometo(){
+  const body = JSON.stringify({
+    "usuario":"rubencin",
+    "password":"1234"});
+  console.log(body);
+  let tokencito:string = ''
+  const params = new HttpParams();
+  const headers = new HttpHeaders();
+  return await this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
+    .toPromise().then(data =>
+    // @ts-ignore
+    this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
 
+}
 
 }
