@@ -70,5 +70,12 @@ body{
   display: block;
 }
 
+#logro{
+  z-index: 2;
+  position: fixed;
+  margin-top: 40vh;
+  margin-left: 50%;
+}
+
 
 

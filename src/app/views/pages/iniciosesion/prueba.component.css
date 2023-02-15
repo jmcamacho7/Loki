@@ -96,8 +96,11 @@ body{
   font-weight: lighter;
 }
 
+
 #logro{
   z-index: 2;
-  display: block;
+  display: none;
   position: fixed;
+  margin-top: 45vh;
+  margin-left: 50%;
 }

@@ -4,11 +4,11 @@
   <title>Registro</title>
 </head>
 <body>
-<div class="d-flex justify-content-center" id="logro" style="margin-top: 50%">
-  <div class="spinner-border" role="status">
+
+  <div class="spinner-border" role="status" id="logro">
     <span class="sr-only">Cargando...</span>
   </div>
-</div>
+
 <div class="container d-flex justify-content-center align-items-center">
   <div class="contenedor">
     <div class="row">
@@ -21,7 +21,7 @@
             <div class="text-right">
               <button class="btn register btn-block" (click)="login()">Iniciar sesión</button>
             </div>
-            <a href="#" class="login">¿No tienes cuenta?</a>
+            <a routerLink="/registro" class="login">¿No tienes cuenta?</a>
           </div>
         </div>
       </div>
