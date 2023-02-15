@@ -14,8 +14,8 @@ export class PerfilComponent {
 
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
-    console.log(token)
-    const headers = new HttpHeaders({'api_key': token!} )
+    console.log('mi usuario token: ',token)
+    const headers = new HttpHeaders({'apikey': token!} )
 
     this.http.get("http://localhost:8000/api/usuario/mi-usuario", {headers})
       .subscribe(
