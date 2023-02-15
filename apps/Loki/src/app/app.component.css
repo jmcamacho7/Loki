@@ -1,0 +1,127 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  background-color: whitesmoke;
+}
+.profile-picture-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.username {
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: lightcoral;
+}
+
+#barra {
+  display: flex;
+  flex-direction: row;
+}
+li {
+  display: inline;
+}
+@media (max-width: 768px) {
+}
+/* Media Queries para hacer el sidebar responsive */
+@media (max-width: 991px) {
+  .sidebar {
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    display: none;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap');
+
+.card {
+  width: 300px;
+  border: none;
+  border-radius: 15px;
+}
+
+.adiv {
+  background: lightcoral;
+  border-radius: 15px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  font-size: 12px;
+  height: 46px;
+  box-shadow: 5px 10px;
+}
+img {
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.fas {
+  cursor: pointer;
+}
+.fa-chevron-left {
+  color: #fff;
+}
+h6 {
+  font-size: 12px;
+  font-weight: bold;
+}
+small {
+  font-size: 10px;
+  color: #898989;
+}
+.form-control {
+  border: none;
+  background: #f6f7fb;
+  font-size: 12px;
+}
+.form-control:focus {
+  box-shadow: none;
+  background: #f6f7fb;
+}
+.form-control::placeholder {
+  font-size: 12px;
+  color: #b8b9bd;
+}
+.btn-primary {
+  background: lightcoral;
+  padding: 4px 0 7px;
+  border: none;
+}
+.btn-primary:focus {
+  box-shadow: none;
+}
+.btn-primary span {
+  font-size: 12px;
+  color: whitesmoke;
+}
+p.mt-3 {
+  font-size: 11px;
+  color: #b8b9bd;
+  cursor: pointer;
+}
+
+#escribir {
+  z-index: 2;
+  display: none;
+}

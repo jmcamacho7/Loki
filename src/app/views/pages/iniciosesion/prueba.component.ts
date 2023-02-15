@@ -56,7 +56,20 @@ export class PruebaComponent {
           // @ts-ignore
           this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
       console.log(localStorage.getItem('token'))
-    }, 3000);
+    },3000);
+
+    const tokencitoFinal:string = localStorage.get('token')
+    while(tokencitoFinal == 'undefined'){
+      setTimeout(() => {
+        console.log('sleep');
+        this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
+          .subscribe(data =>
+            // @ts-ignore
+            this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
+        console.log(localStorage.getItem('token'))
+      },2000);
+      tokencitoFinal = localStorage.get('token');
+    }
   }
 
 

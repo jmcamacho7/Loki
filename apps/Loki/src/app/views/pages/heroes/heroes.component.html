@@ -1,0 +1,56 @@
+<head>
+  <title>Javascript</title>
+
+  <style type="text/css">
+    .circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      float: left;
+      margin-right: 50px;
+    }
+    .rounded {
+      width: 130px;
+      height: 130px;
+      border-radius: 25%;
+      float: left;
+      margin-right: 50px;
+    }
+    .square {
+      width: 130px;
+      height: 130px;
+      border-radius: 0%;
+      float: left;
+      margin-right: 50px;
+    }
+    #circle {
+      background-color: #196f3d;
+    }
+    #rounded {
+      background-color: #5dade2;
+    }
+    #square {
+      background-color: #58d68d;
+    }
+  </style>
+</head>
+
+<body>
+  <div *ngIf="login != null; else espera">
+    <table border="1">
+      <tr>
+        <td>ID</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Rol</td>
+      </tr>
+      <tr *ngFor="let art of login">
+        <td>{{ art.email }}</td>
+        <td>{{ art.email }}</td>
+        <td>{{ art.password }}</td>
+        <td>{{ art.rol }}</td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #espera>Esperando datos...</ng-template>
+</body>
