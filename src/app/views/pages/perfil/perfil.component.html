@@ -1,5 +1,5 @@
 <div class="row py-5 px-4">
-  <div>
+  <div *ngFor="let art of perfil">
     <!-- Profile widget -->
     <div class="bg-white shadow rounded overflow-hidden">
       <div class="px-4 pt-0 pb-4 cover" style="background-image: url(https://i.pinimg.com/originals/d3/de/96/d3de9644cb0a3d50b00aa00e989ad87c.png)">
@@ -9,7 +9,7 @@
             <a href="#" class="btn btn-outline-dark btn-sm btn-block" style="margin-top: 5px;">Editar</a>
           </div>
           <div class="media-body mb-5 text-white">
-            <h4 class="mt-0 mb-0">Juanma</h4>
+            <h4 class="mt-0 mb-0">{{art.usuario}}</h4>
             <p class="small mb-4">
               <i class="fas fa-map-marker-alt mr-2">@tidalcode</i>
             </p>

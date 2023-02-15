@@ -13,15 +13,16 @@ export class PerfilComponent {
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
     console.log(token)
-    const headers = new HttpHeaders({'api_key': token!})
+    const headers = new HttpHeaders({'apikey': token!})
 
     this.http.get("http://localhost:8000/api/usuario/mi-usuario", {headers})
       .subscribe(
         resultado => {
-          this.perfil = resultado;
+          this.perfil = Object.entries(resultado);
+          console.log(this.perfil);
         }
       );
-    console.log(this.perfil)
+
   }
 
 }

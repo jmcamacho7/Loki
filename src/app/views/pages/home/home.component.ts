@@ -19,6 +19,7 @@ export class HomeComponent {
       .subscribe(
         resultado => {
           this.publicacion = resultado;
+          console.log(resultado)
         }
       );
   }

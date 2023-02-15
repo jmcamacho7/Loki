@@ -26,6 +26,7 @@
     "@ionic/angular": "^6.4.2",
     "@material-ui/core": "^4.12.4",
     "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
     "file-saver": "^2.0.5",
     "jquery": "^3.6.3",
     "ngx-cookie-service": "^15.0.0",

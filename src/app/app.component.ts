@@ -37,10 +37,10 @@ export class AppComponent {
   }
 
   guardarPubli(){
-    const headers = new HttpHeaders()
-    const body = JSON.stringify({'usuario_id':this.art.usuario_id,
-      'texto':this.art.texto,
-      'foto':'https://i.imgur.com/mT0MaAc.jpeg'})
+    const token: string | null = localStorage.getItem('token')
+    console.log(token)
+    const headers = new HttpHeaders({'apikey': token!})
+    const body = JSON.stringify({'texto':this.art.texto})
     console.log(body)
     const params = new HttpParams()
     this.http.post('http://localhost:8000/api/publicacion/save', body, {headers: headers, params: params})
