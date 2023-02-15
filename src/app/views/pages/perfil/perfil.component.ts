@@ -18,7 +18,8 @@ export class PerfilComponent {
     this.http.get("http://localhost:8000/api/usuario/mi-usuario", {headers})
       .subscribe(
         resultado => {
-          this.perfil = Object.entries(resultado);
+          // @ts-ignore
+          this.perfil = resultado;
           console.log(this.perfil);
         }
       );
