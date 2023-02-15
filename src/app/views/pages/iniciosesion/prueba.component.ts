@@ -23,46 +23,22 @@ export class PruebaComponent {
 
   }
 
-  onEmailInput(event: Event){
-    const target = event.target as HTMLInputElement;
-    this.usuario_id = target.value;
-  }
-
-  onPasswordInput(event:Event){
-    const target = event.target as HTMLInputElement;
-    this.password = target.value;
+  usuario ={
+    usuario: '',
+    password: ''
   }
 
   async login() {
     let prueba = await this.prometo();
     console.log(prueba);
-
-    // setTimeout(() => {
-    //   console.log('sleep');
-    //   this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
-    //     .subscribe( data =>
-    //       // @ts-ignore
-    //       this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-    //   console.log(localStorage.getItem('token'))
-    // },3000);
-
-    // const tokencitoFinal:string = localStorage.get('token')
-    // while(tokencitoFinal == 'undefined'){
-    //   setTimeout(() => {
-    //     console.log('sleep');
-    //     this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
-    //       .subscribe(data =>
-    //         // @ts-ignore
-    //         this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-    //     console.log(localStorage.getItem('token'))
-    //   },2000);
-    //   tokencitoFinal = localStorage.get('token');
-    // }
+    // @ts-ignore
+    localStorage.setItem('token', prueba)
+    console.log(localStorage.getItem('token'))
   }
 async prometo(){
   const body = JSON.stringify({
-    "usuario":"rubencin",
-    "password":"1234"});
+    "usuario":this.usuario.usuario,
+    "password":this.usuario.password});
   console.log(body);
   let tokencito:string = ''
   const params = new HttpParams();
@@ -70,7 +46,8 @@ async prometo(){
   return await this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
     .toPromise().then(data =>
     // @ts-ignore
-    this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
+    this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito))
+    .catch(msg => alert('Error: usuario o contraseña erroneos'));
 
 }
 
