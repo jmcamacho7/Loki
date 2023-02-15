@@ -37,7 +37,7 @@ export class PruebaComponent {
 
   login() {
     const body = JSON.stringify({
-      "usuario":"juanma",
+      "usuario":"rubencin",
       "password":"1234"});
     console.log(body);
     let tokencito:string = ''
@@ -47,16 +47,16 @@ export class PruebaComponent {
       .subscribe(data =>
         // @ts-ignore
      this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-    console.log(localStorage.getItem('token'))
+    console.log(localStorage.getItem('token'));
 
-    setTimeout(() => {
-      console.log('sleep');
-      this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
-        .subscribe(data =>
-          // @ts-ignore
-          this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
-      console.log(localStorage.getItem('token'))
-    }, 3000);
+    // setTimeout(() => {
+    //   console.log('sleep');
+    //   this.http.post<AuthResponse>("http://localhost:8000/api/login", body, {'headers':headers,'params':params})
+    //     .subscribe(data =>
+    //       // @ts-ignore
+    //       this.tokencito = data.token.token, localStorage.setItem('token', this.tokencito));
+    //   console.log(localStorage.getItem('token'))
+    // }, 3000);
   }
 
 
