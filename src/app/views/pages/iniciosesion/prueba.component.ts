@@ -34,8 +34,20 @@ export class PruebaComponent {
     // @ts-ignore
     localStorage.setItem('token', prueba)
     console.log(localStorage.getItem('token'))
+    const circulo:any = document.getElementById('logro')
+    circulo.style.display = "none";
+
+    if (localStorage.getItem('token') === 'undefined'){
+
+    }
+    else {
+      window.location.href = '/home';
+    }
   }
+
 async prometo(){
+  const circulo:any = document.getElementById('logro')
+  circulo.style.display = "block";
   const body = JSON.stringify({
     "usuario":this.usuario.usuario,
     "password":this.usuario.password});

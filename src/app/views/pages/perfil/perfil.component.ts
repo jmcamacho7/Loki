@@ -7,22 +7,23 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
+
   perfil: any;
-
-  constructor(private http: HttpClient) {
-  }
-
+  constructor(private http: HttpClient) { }
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
-    console.log('mi usuario token: ',token)
-    const headers = new HttpHeaders({'apikey': token!} )
+    console.log(token)
+    const headers = new HttpHeaders({'apikey': token!})
 
     this.http.get("http://localhost:8000/api/usuario/mi-usuario", {headers})
       .subscribe(
         resultado => {
+          // @ts-ignore
           this.perfil = resultado;
+          console.log(this.perfil);
         }
       );
-    console.log(this.perfil)
+
   }
+
 }
