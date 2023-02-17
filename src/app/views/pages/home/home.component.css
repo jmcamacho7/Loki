@@ -3,23 +3,24 @@ body{
   background-color: whitesmoke;
   height: 100%;
 }
+
 /* Estilo para los tweets */
 .card {
   margin-bottom: 20px;
 }
 
 .card-header {
-  background-color: #007bff;
+  background-color: lightcoral;
   color: white;
 }
 
 .card-footer {
-  background-color: #E6ECF0;
+  background-color: lightcoral;
 }
 
 /* Estilo para el botón de nuevo tweet */
-.btn-outline-secondary {
-  background-color: #007bff;
+.btn-outline-secondary, .btn {
+  background-color: lightcoral;
   color: white;
 }
 
@@ -36,17 +37,15 @@ body{
   display: flex;
   justify-content: center;
   border-color: black;
-
 }
+
 .tweet {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   align-items: flex-start;
   padding: 30px;
   background: white;
-  border-radius: 10px;
   width: 300vh;
-  border-color: black;
 }
 .profile-picture {
   width: 50px;
@@ -109,6 +108,4 @@ body{
     transform: rotate(360deg);
   }
 }
-
-
 

@@ -13,20 +13,22 @@ import { PerfilComponent } from './views/pages/perfil/perfil.component';
 import {FontAwesomeModule, FaIconLibrary,} from '@fortawesome/angular-fontawesome';
 import {faStackOverflow, faGithub, faMedium,} from '@fortawesome/free-brands-svg-icons';
 import {HttpClientModule} from '@angular/common/http';
-import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark, faSearch} from '@fortawesome/free-solid-svg-icons';
 import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import {AuthService} from "./shared/services/auth.service";
 import {PruebaService} from "./shared/services/prueba.service";
 import {RestService} from "./shared/services/rest.service";
-import {tokenService} from "./shared/services/token.service";
+import { BuscadorComponent } from './views/pages/buscador/buscador.component';
+import {BuscadorService} from "./shared/services/buscador.service";
 
 const appRoutes:Routes=[
   {path: 'registro', component: InicioComponent},
   {path: 'inicio-sesion', component: PruebaComponent},
   {path: 'home', component: HomeComponent},
   {path: 'perfil', component: PerfilComponent},
-  {path: 'heroes', component: HeroesComponent}
+  {path: 'heroes', component: HeroesComponent},
+  {path: 'busqueda', component: BuscadorComponent}
 ];
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ const appRoutes:Routes=[
     InicioComponent,
     HeroesComponent,
     HomeComponent,
-    PerfilComponent
+    PerfilComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, PruebaService, RestService, tokenService],
+  providers: [AuthService, PruebaService, RestService, BuscadorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -62,7 +65,8 @@ export class AppModule {
       faPerson,
       faPlus,
       faShare,
-      faXmark
+      faXmark,
+      faSearch
     );
   }
 }

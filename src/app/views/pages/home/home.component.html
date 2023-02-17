@@ -7,18 +7,15 @@
 <div class="container-fluid" id="cuerpo">
   <main role="main" class=".justify-content-center">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin: 0">
-      <h1 class="h2">Feed de Tweets</h1>
+      <h1 class="h2">Feed de Publicaciones</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group mr-2">
-          <button type="button" id="boton" class="btn btn-sm btn-outline-secondary">Nuevo Tweet</button>
-        </div>
       </div>
     </div>
     <div *ngIf="publicacion!=null; else espera">
       <div class="row" *ngFor="let art of publicacion">
         <div class="container">
-          <div class="tweet">
-            <img src="{{art.usuarioId.foto}}" class="profile-picture">
+          <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
+            <img src="https://i.imgur.com/mT0MaAc.jpeg" class="profile-picture">
             <div class="tweet-info">
               <h4 class="name">{{art.usuarioId.nombre}}</h4>
               <p class="username">{{art.usuarioId.usuario}}</p>
@@ -34,6 +31,8 @@
         <div class="loader"></div>
       </div>
     </ng-template>
+
   </main>
 </div>
+
 </body>
