@@ -1,0 +1,38 @@
+<head>
+  <link rel="stylesheet" href="buscador.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid" id="cuerpo">
+  <main role="main" class=".justify-content-center">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="margin: 0">
+      <h1 class="h2">Feed de Publicaciones</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+      </div>
+    </div>
+    <div *ngIf="listaUsuarios!=null; else espera">
+      <div class="row" *ngFor="let art of listaUsuarios">
+        <div class="container">
+          <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
+            <img src="{{art.foto}}" class="profile-picture">
+            <div class="tweet-info">
+              <h4 class="name">{{art.nombre}}</h4>
+              <p class="username">{{art.usuario}}</p>
+              <p class="tweet-text"><b>Sobre mí:</b> {{art.nick}}</p>
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #espera >
+      <div class="spinner">
+        <div class="loader"></div>
+      </div>
+    </ng-template>
+
+  </main>
+</div>
+
+</body>
