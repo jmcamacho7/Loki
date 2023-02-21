@@ -12,27 +12,23 @@ import {HomeService} from "./home.service";
 export class HomeComponent {
   publicacion: any;
   foto: any;
-
-
-
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:8000/api/publicacion/list")
+    const token: string | null = localStorage.getItem('token')
+    console.log(token)
+    const headers = new HttpHeaders({'apikey': token!})
+
+    this.http.get("http://localhost:8000/api/publicaciones/usuario/amigo", {headers})
       .subscribe(
         resultado => {
-          const reversedArray = [];
           // @ts-ignore
-          for(let i = resultado.length - 1; i >= 0; i--){
-            // @ts-ignore
-            reversedArray.push(resultado[i]);
-          }
-          this.publicacion = reversedArray;
-          console.log(resultado)
+          this.publicacion = resultado;
+          console.log(this.publicacion);
         }
       );
-  }
 
+  }
 }
 
 
