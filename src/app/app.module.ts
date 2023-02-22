@@ -21,6 +21,8 @@ import {PruebaService} from "./shared/services/prueba.service";
 import {RestService} from "./shared/services/rest.service";
 import { BuscadorComponent } from './views/pages/buscador/buscador.component';
 import {BuscadorService} from "./shared/services/buscador.service";
+import { ChatComponent } from './views/pages/chat/chat.component';
+import { PerfildesconocidoComponent } from './views/pages/perfildesconocido/perfildesconocido.component';
 
 const appRoutes:Routes=[
   {path: 'registro', component: InicioComponent},
@@ -28,7 +30,10 @@ const appRoutes:Routes=[
   {path: 'home', component: HomeComponent},
   {path: 'perfil', component: PerfilComponent},
   {path: 'heroes', component: HeroesComponent},
-  {path: 'busqueda', component: BuscadorComponent}
+  {path: 'busqueda', component: BuscadorComponent},
+  {path: 'chat', component: ChatComponent},
+  {path: 'perfil-usuario', component: PerfildesconocidoComponent},
+
 ];
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ const appRoutes:Routes=[
     HeroesComponent,
     HomeComponent,
     PerfilComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    ChatComponent,
+    PerfildesconocidoComponent
   ],
   imports: [
     BrowserModule,

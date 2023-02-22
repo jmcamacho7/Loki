@@ -1,0 +1,96 @@
+.profile-head {
+  transform: translateY(5rem)
+}
+
+.cover {
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+body {
+  background: white;
+  min-height: 100vh;
+  overflow-x:hidden;
+}
+
+/* Estilo para los tweets */
+.card {
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.card-footer {
+  background-color: #E6ECF0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+}
+.tweet {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: lightcoral;
+  width: 300vh;
+}
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.tweet-info {
+  flex: 1;
+}
+.name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.username {
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 9999;
+}
+
+.loader {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid lightcoral;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

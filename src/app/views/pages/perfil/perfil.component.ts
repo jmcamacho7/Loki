@@ -9,6 +9,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class PerfilComponent {
 
   perfil: any;
+  tidals: any;
+
+  numeroTidals={
+    numero: ''
+  }
   constructor(private http: HttpClient) { }
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
@@ -19,8 +24,19 @@ export class PerfilComponent {
       .subscribe(
         resultado => {
           // @ts-ignore
+          this.numeroTidals.numero = resultado.length;
           this.perfil = resultado;
           console.log(this.perfil);
+        }
+      );
+
+    this.http.get("http://localhost:8000/api/publicaciones/mis-publicaciones", {headers})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+
+          this.tidals = resultado.reverse();
+          console.log(this.tidals);
         }
       );
 

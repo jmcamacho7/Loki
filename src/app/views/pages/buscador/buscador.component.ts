@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./buscador.component.css']
 })
 export class BuscadorComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   parametro: any;
   listaUsuarios: any;
@@ -30,6 +30,12 @@ export class BuscadorComponent {
           this.listaUsuarios = resultado;
         }
       );
+  }
+
+  abrirPerfil(id:string){
+    localStorage.setItem('idUsuario', id)
+    console.log(localStorage.getItem('idUsuario'))
+    this.router.navigate(['/perfil-usuario']);
   }
 
 }

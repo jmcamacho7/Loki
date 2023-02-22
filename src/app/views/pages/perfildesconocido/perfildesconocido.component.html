@@ -1,6 +1,6 @@
 <div class="row py-5 px-4" *ngIf="perfil!=null; else espera" style="background-color: white">
   <div>
-    <div class="bg-white shadow rounded overflow-hidden">
+    <div class="bg-white shadow rounded overflow-hidden" >
       <div class="px-4 pt-0 pb-4 cover" [style.background-image]="perfil.encabezado ? 'url(' + perfil.encabezado + ')' : 'url(https://wallpapers.com/images/high/pixel-beach-sp79t5xnmjohyfen.webp)'">
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
@@ -18,7 +18,7 @@
       <div class="bg-light p-4 d-flex justify-content-end text-center">
         <ul class="list-inline mb-0">
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">{{numeroTidals.numero}}</h5>
+            <h5 class="font-weight-bold mb-0 d-block">215</h5>
             <small class="text-muted"> <i class="fas fa-image mr-1"></i>Tidals</small>
           </li>
           <li class="list-inline-item">
@@ -42,17 +42,26 @@
           <h5 class="mb-0">Tidals recientes</h5>
           <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
-        <div *ngIf="tidals!=null; else espera">
-          <div class="row" *ngFor="let art of tidals">
-            <div class="container">
-              <div class="tweet" style="background: white;">
-                <img src="{{perfil.foto}}" class="profile-picture">
-                <div class="tweet-info">
-                  <h4 class="name">{{art.usuarioId.nombre}}</h4>
-                  <p class="username">{{art.usuarioId.usuario}}</p>
-                  <p class="tweet-text">{{art.texto}}</p>
-                  <small class="text-muted">Publicado el {{art.fecha}}</small>
-                </div>
+        <div class="row">
+          <div class="container">
+            <div class="tweet" style="background: white;">
+              <img src="https://i.imgur.com/mT0MaAc.jpeg" class="profile-picture">
+              <div class="tweet-info">
+                <h4 class="name">Juanma</h4>
+                <p class="username">@tidalcode</p>
+                <p class="tweet-text">hola</p>
+                <small class="text-muted">Publicado hace 1 minuto</small>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="tweet" style="background: white;">
+              <img src="https://i.imgur.com/mT0MaAc.jpeg" class="profile-picture">
+              <div class="tweet-info">
+                <h4 class="name">Juanma</h4>
+                <p class="username">@tidalcode</p>
+                <p class="tweet-text">qué tal</p>
+                <small class="text-muted">Publicado hace 1 minuto</small>
               </div>
             </div>
           </div>

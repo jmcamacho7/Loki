@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {style} from "@angular/animations";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {HomeService} from "./home.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,7 +13,8 @@ import {HomeService} from "./home.service";
 export class HomeComponent {
   publicacion: any;
   foto: any;
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
@@ -23,11 +25,17 @@ export class HomeComponent {
       .subscribe(
         resultado => {
           // @ts-ignore
+
           this.publicacion = resultado;
           console.log(this.publicacion);
         }
       );
 
+  }
+  abrirPerfil(id:string){
+    localStorage.setItem('idUsuario', id)
+    console.log(localStorage.getItem('idUsuario'))
+    this.router.navigate(['/perfil-usuario']);
   }
 }
 
