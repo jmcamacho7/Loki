@@ -13,7 +13,7 @@ import { PerfilComponent } from './views/pages/perfil/perfil.component';
 import {FontAwesomeModule, FaIconLibrary,} from '@fortawesome/angular-fontawesome';
 import {faStackOverflow, faGithub, faMedium,} from '@fortawesome/free-brands-svg-icons';
 import {HttpClientModule} from '@angular/common/http';
-import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark, faSearch} from '@fortawesome/free-solid-svg-icons';
+import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark, faSearch, faHeart} from '@fortawesome/free-solid-svg-icons';
 import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import {AuthService} from "./shared/services/auth.service";
@@ -73,7 +73,8 @@ export class AppModule {
       faPlus,
       faShare,
       faXmark,
-      faSearch
+      faSearch,
+      faHeart
     );
   }
 }

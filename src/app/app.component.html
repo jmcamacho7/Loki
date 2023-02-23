@@ -15,8 +15,10 @@
     <div class="mt-2 p-4 text-center">
       <h6 class="mb-0">¿En qué piensas ahora?</h6>
       <small class="px-3">Cuéntale al mundo qué andas haciendo.</small>
-      <div class="form-group mt-4">
+      <div class="form-group mt-6">
         <input class="form-control" rows="4" placeholder="Publicación" type="text" [(ngModel)]="art.texto" />
+        <br>
+        <input class="form-control" rows="2" placeholder="¿Tag?" type="text" [(ngModel)]="art.tags" />
       </div>
       <div class="mt-2">
         <button (click)="guardarPubli()" class="btn btn-primary btn-block" ><span><fa-icon [icon]="['fas', 'share']" style="color: whitesmoke"></fa-icon> </span></button>

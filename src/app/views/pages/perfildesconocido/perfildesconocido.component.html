@@ -5,7 +5,10 @@
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             <img src="{{perfil.foto}}" alt="..." width="130" class="img-thumbnail" style="border-radius: 50%; border-color: lightcoral; border-width: 5px;">
-            <a href="#" class="btn btn-outline-dark btn-sm btn-block" style="margin-top: 5px;">Editar</a>
+            <div *ngFor="let art of lista">
+            <button *ngIf="art.id != perfil.id" id="seguir" class="btn btn-sm btn-block" style="margin-top: 10px; background-color: lightcoral; color: white;">Seguir</button>
+            <button *ngIf="art.id == perfil.id" id="siguiendo" class="btn btn-sm btn-block" style="margin-top: 10px; background-color: white; border: lightcoral 1px; color: lightcoral;">Siguiendo</button>
+            </div>
           </div>
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0">{{perfil.nombre}}</h4>
@@ -42,26 +45,17 @@
           <h5 class="mb-0">Tidals recientes</h5>
           <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
-        <div class="row">
-          <div class="container">
-            <div class="tweet" style="background: white;">
-              <img src="https://i.imgur.com/mT0MaAc.jpeg" class="profile-picture">
-              <div class="tweet-info">
-                <h4 class="name">Juanma</h4>
-                <p class="username">@tidalcode</p>
-                <p class="tweet-text">hola</p>
-                <small class="text-muted">Publicado hace 1 minuto</small>
-              </div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="tweet" style="background: white;">
-              <img src="https://i.imgur.com/mT0MaAc.jpeg" class="profile-picture">
-              <div class="tweet-info">
-                <h4 class="name">Juanma</h4>
-                <p class="username">@tidalcode</p>
-                <p class="tweet-text">qué tal</p>
-                <small class="text-muted">Publicado hace 1 minuto</small>
+        <div *ngIf="tidals!=null; else espera">
+          <div class="row" *ngFor="let art of tidals">
+            <div class="container">
+              <div class="tweet" style="background: white;">
+                <img src="{{perfil.foto}}" class="profile-picture">
+                <div class="tweet-info">
+                  <h4 class="name">{{art.usuarioId.nombre}}</h4>
+                  <p class="username">{{art.usuarioId.usuario}}</p>
+                  <p class="tweet-text">{{art.texto}}</p>
+                  <small class="text-muted">Publicado el {{art.fecha}}</small>
+                </div>
               </div>
             </div>
           </div>
@@ -69,6 +63,9 @@
       </div>
     </div>
   </div>
+</div>
+<div style="padding-top: 11vh;">
+
 </div>
 <ng-template #espera >
   <div class="spinner">

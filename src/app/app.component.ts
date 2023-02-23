@@ -22,7 +22,8 @@ export class AppComponent {
   art={
     usuario_id:2,
     texto:"",
-    foto:"https://i.imgur.com/mT0MaAc.jpeg"
+    foto:"",
+    tags:''
   }
 
   buscador={
@@ -69,7 +70,8 @@ export class AppComponent {
     const body = JSON.stringify({
       'usuarioId':1,
       'texto':this.art.texto,
-      'foto':''})
+      'foto':'',
+      'tags':this.art.tags})
     console.log(body)
     const params = new HttpParams()
     this.http.post('http://localhost:8000/api/publicacion/save', body, {headers: headers, params: params})
