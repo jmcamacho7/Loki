@@ -9,10 +9,16 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom fixed-top" style="margin: 0; background-color: whitesmoke;">
       <h1 class="h2" style="margin-left: 5vh; font-family: 'Times New Roman'">Publicaciones</h1>
       <img class="end-0" src="assets/Logo.png" style="width: 10vw;  margin-right: 5vh;">
+      <div>
+        <button style="width: 50%">Para ti</button>
+        <button style="width: 50%">Todo</button>
+      </div>
     </div>
+
     <div style="padding-top: 11vh;">
 
     </div>
+
     <div *ngIf="publicacion!=null; else espera">
       <div class="row" *ngFor="let art of publicacion">
         <div class="container">

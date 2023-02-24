@@ -90,7 +90,6 @@ export class AppComponent {
   }
   buscarUsuario(){
     console.log(this.buscador.nombre)
-    let termino = this.buscador.nombre
     localStorage.setItem('busqueda', this.buscador.nombre)
     if (this.router.url.includes('/busqueda'))
     {

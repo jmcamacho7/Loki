@@ -18,7 +18,7 @@
       <div class="bg-light p-4 d-flex justify-content-end text-center">
         <ul class="list-inline mb-0">
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">{{numeroTidals.numero}}</h5>
+            <h5 class="font-weight-bold mb-0 d-block">{{numeros.numeroTidals}}</h5>
             <small class="text-muted"> <i class="fas fa-image mr-1"></i>Tidals</small>
           </li>
           <li class="list-inline-item">
@@ -26,7 +26,7 @@
             <small class="text-muted"> <i class="fas fa-user mr-1"></i>Seguidores</small>
           </li>
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">340</h5>
+            <h5 class="font-weight-bold mb-0 d-block">{{numeros.numeroSiguiendo}}</h5>
             <small class="text-muted"> <i class="fas fa-user mr-1"></i>Seguidos</small>
           </li>
         </ul>
@@ -42,7 +42,7 @@
           <h5 class="mb-0">Tidals recientes</h5>
           <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
-        <div *ngIf="tidals!=null; else espera">
+        <div>
           <div class="row" *ngFor="let art of tidals">
             <div class="container">
               <div class="tweet" style="background: white;">

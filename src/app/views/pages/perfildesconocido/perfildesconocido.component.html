@@ -5,9 +5,9 @@
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             <img src="{{perfil.foto}}" alt="..." width="130" class="img-thumbnail" style="border-radius: 50%; border-color: lightcoral; border-width: 5px;">
-            <div *ngFor="let art of lista">
-            <button *ngIf="art.id != perfil.id" id="seguir" class="btn btn-sm btn-block" style="margin-top: 10px; background-color: lightcoral; color: white;">Seguir</button>
-            <button *ngIf="art.id == perfil.id" id="siguiendo" class="btn btn-sm btn-block" style="margin-top: 10px; background-color: white; border: lightcoral 1px; color: lightcoral;">Siguiendo</button>
+            <div>
+            <button id="seguir" #seguirBtn class="btn btn-sm btn-block" style="margin-top: 10px; background-color: lightcoral; color: white; display: none" (click)="seguirUsuario()">Seguir</button>
+            <button id="siguiendo" #siguiendoBtn class="btn btn-sm btn-block" style="margin-top: 10px; background-color: white; border: lightcoral 1px; color: lightcoral; display: none" (click)="borrarSeguir()">Siguiendo</button>
             </div>
           </div>
           <div class="media-body mb-5 text-white">
@@ -21,7 +21,7 @@
       <div class="bg-light p-4 d-flex justify-content-end text-center">
         <ul class="list-inline mb-0">
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">215</h5>
+            <h5 class="font-weight-bold mb-0 d-block">{{numeros.numeroTidals}}</h5>
             <small class="text-muted"> <i class="fas fa-image mr-1"></i>Tidals</small>
           </li>
           <li class="list-inline-item">

@@ -11,8 +11,10 @@ export class PerfilComponent {
   perfil: any;
   tidals: any;
 
-  numeroTidals={
-    numero: ''
+  numeros={
+    numeroTidals: '',
+    numeroSiguiendo: '',
+    numeroSeguidores: ''
   }
   constructor(private http: HttpClient) { }
   ngOnInit() {
@@ -24,7 +26,7 @@ export class PerfilComponent {
       .subscribe(
         resultado => {
           // @ts-ignore
-          this.numeroTidals.numero = resultado.length;
+
           this.perfil = resultado;
           console.log(this.perfil);
         }
@@ -34,9 +36,18 @@ export class PerfilComponent {
       .subscribe(
         resultado => {
           // @ts-ignore
-
           this.tidals = resultado.reverse();
+          // @ts-ignore
+          this.numeros.numeroTidals = resultado.length;
           console.log(this.tidals);
+        }
+      );
+
+    this.http.get("http://localhost:8000/api/amigos/mis-amigos", {headers})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+          this.numeros.numeroSiguiendo = resultado.length;
         }
       );
 

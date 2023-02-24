@@ -18,7 +18,6 @@ export class BuscadorComponent {
     const body = JSON.stringify({
       'nombre':localStorage.getItem('busqueda')
     })
-    const headers = new HttpHeaders()
     console.log(body)
     const params = new HttpParams().set('nombre', localStorage.getItem('busqueda')!)
     console.log(params)
