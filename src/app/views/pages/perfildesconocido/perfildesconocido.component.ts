@@ -83,6 +83,34 @@ export class PerfildesconocidoComponent implements AfterViewInit  {
           this.tidals = resultado;
         }
       );
+    this.http.get("http://localhost:8000/api/amigos/amigos-id", {params: params})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+          this.numeros.numeroSiguiendo = resultado.length;
+        },
+        error => {
+          if (error.status === 300) {
+            // @ts-ignore
+            this.numeros.numeroSiguiendo = 0;
+          }
+        }
+      );
+    this.http.get("http://localhost:8000/api/amigos/seguidores-de-usuario", {params: params})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+          console.log('Seguidores:', resultado)
+          // @ts-ignore
+          this.numeros.numeroSeguidores = resultado.length;
+        },
+        error => {
+          if (error.status === 300) {
+            // @ts-ignore
+            this.numeros.numeroSeguidores = 0;
+          }
+        }
+      );
   }
   seguirUsuario(){
     const token: string | null = localStorage.getItem('token')

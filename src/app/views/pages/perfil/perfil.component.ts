@@ -48,6 +48,27 @@ export class PerfilComponent {
         resultado => {
           // @ts-ignore
           this.numeros.numeroSiguiendo = resultado.length;
+        },
+          error => {
+            if (error.status === 300) {
+              // @ts-ignore
+              this.numeros.numeroSiguiendo = 0;
+            }
+        }
+      );
+    this.http.get("http://localhost:8000/api/amigos/mis-seguidores", {headers})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+          console.log('Seguidores:', resultado)
+          // @ts-ignore
+          this.numeros.numeroSeguidores = resultado.length;
+        },
+        error => {
+          if (error.status === 300) {
+            // @ts-ignore
+            this.numeros.numeroSeguidores = 0;
+          }
         }
       );
 

@@ -14,7 +14,30 @@ export class HomeComponent {
   publicacion: any;
   foto: any;
 
+  like={
+    'id': ''
+  }
+
   constructor(private http: HttpClient, private router: Router) { }
+
+  comprobarLike(JSON:any){
+    const id = JSON.id
+    const token: string | null = localStorage.getItem('token')
+    console.log(token)
+    const headers = new HttpHeaders({'apikey': token!})
+    const params = new HttpParams().set('id', id)
+
+    this.http.get("http://localhost:8000/api/publicaciones/tieneLike", {headers, params})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+
+          this.publicacion = resultado;
+          console.log(this.publicacion);
+        }
+      );
+
+  }
 
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
@@ -28,6 +51,9 @@ export class HomeComponent {
 
           this.publicacion = resultado;
           console.log(this.publicacion);
+          //for (const publi in this.publicacion){
+
+          //}
         }
       );
 
@@ -36,6 +62,17 @@ export class HomeComponent {
     localStorage.setItem('idUsuario', id)
     console.log(localStorage.getItem('idUsuario'))
     this.router.navigate(['/perfil-usuario']);
+  }
+
+  likes(id:string){
+    const body = JSON.stringify({
+      'id' : id
+    })
+    this.http.post('http://localhost:8000/api/publicacion/save', body)
+      // @ts-ignore
+      .subscribe(() => {
+
+      });
   }
 }
 
