@@ -1,11 +1,14 @@
 <div class="row py-5 px-4" *ngIf="perfil!=null; else espera" style="background-color: white">
   <div>
-    <div class="bg-white shadow rounded overflow-hidden">
+    <div class="bg-white shadow rounded overflow-hidden" >
       <div class="px-4 pt-0 pb-4 cover" [style.background-image]="perfil.encabezado ? 'url(' + perfil.encabezado + ')' : 'url(https://wallpapers.com/images/high/pixel-beach-sp79t5xnmjohyfen.webp)'">
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             <img src="{{perfil.foto}}" alt="..." width="130" class="img-thumbnail" style="border-radius: 50%; border-color: lightcoral; border-width: 5px;">
-            <a href="#" class="btn btn-outline-dark btn-sm btn-block" style="margin-top: 5px;">Editar</a>
+            <div>
+            <button id="seguir" #seguirBtn class="btn btn-sm btn-block" style="margin-top: 10px; background-color: lightcoral; color: white; display: none" (click)="seguirUsuario()">Seguir</button>
+            <button id="siguiendo" #siguiendoBtn class="btn btn-sm btn-block" style="margin-top: 10px; background-color: white; border: lightcoral 1px; color: lightcoral; display: none" (click)="borrarSeguir()">Siguiendo</button>
+            </div>
           </div>
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0">{{perfil.nombre}}</h4>
@@ -42,7 +45,7 @@
           <h5 class="mb-0">Tidals recientes</h5>
           <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
-        <div>
+        <div *ngIf="tidals!=null; else espera">
           <div class="row" *ngFor="let art of tidals">
             <div class="container">
               <div class="tweet" style="background: white;">

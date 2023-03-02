@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="home.component.css">
+  <link rel="stylesheet" href="buscador.component.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
@@ -7,31 +7,20 @@
 <div class="container-fluid" id="cuerpo" style="background-color: white">
   <main role="main" class=".justify-content-center">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom fixed-top" style="margin: 0; background-color: whitesmoke;">
-      <h1 class="h2" style="margin-left: 5vh; font-family: 'Times New Roman'">Publicaciones</h1>
+      <h1 class="h2" style="margin-left: 5vh; font-family: 'Times New Roman'">Busqueda</h1>
       <img class="end-0" src="assets/Logo.png" style="width: 10vw;  margin-right: 5vh;">
-      <div>
-        <button style="width: 50%">Para ti</button>
-        <button style="width: 50%">Todo</button>
-      </div>
     </div>
-
     <div style="padding-top: 11vh;">
-
-    </div>
-
-    <div *ngIf="publicacion!=null; else espera">
-      <div class="row" *ngFor="let art of publicacion">
+    <div *ngIf="listaUsuarios!=null; else espera">
+      <div class="row" *ngFor="let art of listaUsuarios">
         <div class="container">
           <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
-            <img src="{{art.usuarioId.foto}}" class="profile-picture">
+            <img src="{{art.foto}}" class="profile-picture">
             <div class="tweet-info">
-              <button style="color: black; text-decoration:none; border: 0px; background-color: transparent; font-weight: bold" (click)="abrirPerfil(art.usuarioId.id)"><h4 class="name">{{art.usuarioId.nombre}}</h4></button>
-              <p class="username">{{art.usuarioId.usuario}}</p>
-              <p class="tweet-text">{{art.texto}}</p>
-
-              <small class="text-muted">{{art.fecha}}</small>
-              <a class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</a>
-
+              <button style="color: black; text-decoration:none; border: 0px; background-color: transparent; font-weight: bold" (click)="abrirPerfil(art.id)"><h4 class="name">{{art.nombre}}</h4></button>
+              <p class="username">{{art.usuario}}</p>
+              <p class="tweet-text"><b>Sobre mí:</b> {{art.nick}}</p>
+              <small class="text-muted"></small>
             </div>
           </div>
         </div>
@@ -45,7 +34,7 @@
         <div class="loader"></div>
       </div>
     </ng-template>
-
+    </div>
   </main>
 </div>
 

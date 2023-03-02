@@ -94,3 +94,9 @@ body {
   }
 }
 
+#seguir{
+  display: block;
+}
+#siguiendo{
+  display: none;
+}

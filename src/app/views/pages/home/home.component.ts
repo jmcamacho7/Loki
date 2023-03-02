@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {style} from "@angular/animations";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {HomeService} from "./home.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,22 +12,69 @@ import {HomeService} from "./home.service";
 })
 export class HomeComponent {
   publicacion: any;
+  foto: any;
 
-  constructor(private http: HttpClient) { }
+  like={
+    'id': ''
+  }
 
-  ngOnInit() {
-    this.http.get("http://localhost:8000/api/publicacion/list")
+  constructor(private http: HttpClient, private router: Router) { }
+
+  comprobarLike(JSON:any){
+    const id = JSON.id
+    const token: string | null = localStorage.getItem('token')
+    console.log(token)
+    const headers = new HttpHeaders({'apikey': token!})
+    const params = new HttpParams().set('id', id)
+
+    this.http.get("http://localhost:8000/api/publicaciones/tieneLike", {headers, params})
       .subscribe(
         resultado => {
+          // @ts-ignore
+
           this.publicacion = resultado;
-          console.log(resultado)
+          console.log(this.publicacion);
         }
       );
-  }
-
-
 
   }
+
+  ngOnInit() {
+    const token: string | null = localStorage.getItem('token')
+    console.log(token)
+    const headers = new HttpHeaders({'apikey': token!})
+
+    this.http.get("http://localhost:8000/api/publicaciones/usuario/amigo", {headers})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+
+          this.publicacion = resultado;
+          console.log(this.publicacion);
+          //for (const publi in this.publicacion){
+
+          //}
+        }
+      );
+
+  }
+  abrirPerfil(id:string){
+    localStorage.setItem('idUsuario', id)
+    console.log(localStorage.getItem('idUsuario'))
+    this.router.navigate(['/perfil-usuario']);
+  }
+
+  likes(id:string){
+    const body = JSON.stringify({
+      'id' : id
+    })
+    this.http.post('http://localhost:8000/api/publicacion/save', body)
+      // @ts-ignore
+      .subscribe(() => {
+
+      });
+  }
+}
 
 
 
