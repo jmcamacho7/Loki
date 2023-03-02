@@ -20,10 +20,9 @@ export class HomeComponent {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  comprobarLike(JSON:any){
+  comprobarLike(JSON:any, Lista:Array<any>){
     const id = JSON.id
     const token: string | null = localStorage.getItem('token')
-    console.log(token)
     const headers = new HttpHeaders({'apikey': token!})
     const params = new HttpParams().set('id', id)
 
@@ -31,9 +30,8 @@ export class HomeComponent {
       .subscribe(
         resultado => {
           // @ts-ignore
-
-          this.publicacion = resultado;
-          console.log(this.publicacion);
+          JSON.tienelike = resultado
+          Lista.push(JSON)
         }
       );
 
@@ -43,6 +41,7 @@ export class HomeComponent {
     const token: string | null = localStorage.getItem('token')
     console.log(token)
     const headers = new HttpHeaders({'apikey': token!})
+    let lista: any[] = [];
 
     this.http.get("http://localhost:8000/api/publicaciones/usuario/amigo", {headers})
       .subscribe(
@@ -51,12 +50,12 @@ export class HomeComponent {
 
           this.publicacion = resultado;
           console.log(this.publicacion);
-          //for (const publi in this.publicacion){
-
-          //}
+          for (const publi of this.publicacion){
+            this.comprobarLike(publi, lista)
+          }
+          console.log(lista)
         }
       );
-
   }
   abrirPerfil(id:string){
     localStorage.setItem('idUsuario', id)
