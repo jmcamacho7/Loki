@@ -3,6 +3,8 @@ import {style} from "@angular/animations";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {HomeService} from "./home.service";
 import {Router} from "@angular/router";
+import { concatMap } from 'rxjs/operators';
+import {of} from "rxjs";
 
 
 @Component({
@@ -21,21 +23,23 @@ export class HomeComponent {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  comprobarLike(JSON:any, Lista:Array<any>){
-    const id = JSON.id
-    const token: string | null = localStorage.getItem('token')
-    const headers = new HttpHeaders({'apikey': token!})
-    const params = new HttpParams().set('id', id)
+  comprobarLike(JSON: any, Lista: Array<any>) {
+    const id = JSON.id;
+    console.log(id)
+    const token: string | null = localStorage.getItem('token');
+    const headers = new HttpHeaders({'apikey': token!});
+    const params = new HttpParams().set('id', id);
 
     this.http.get("http://localhost:8000/api/publicaciones/tieneLike", {headers, params})
-      .subscribe(
-        resultado => {
-          // @ts-ignore
-          JSON.tienelike = resultado
-          Lista.push(JSON)
-        }
-      );
-
+      .pipe(
+        concatMap(resultado => {
+          JSON.tienelike = resultado;
+          console.log(resultado)
+          Lista.push(JSON);
+          return of(JSON); // devuelve el JSON para que se pueda acceder fuera del observable
+        })
+      )
+      .subscribe();
   }
 
   ngOnInit() {
