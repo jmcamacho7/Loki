@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent {
   publicacion: any;
+  publicaciones: any;
   foto: any;
 
   like={
@@ -48,12 +49,13 @@ export class HomeComponent {
         resultado => {
           // @ts-ignore
 
-          this.publicacion = resultado;
-          console.log(this.publicacion);
-          for (const publi of this.publicacion){
+          this.publicaciones = resultado;
+          console.log(this.publicaciones);
+          for (const publi of this.publicaciones){
             this.comprobarLike(publi, lista)
           }
           console.log(lista)
+          this.publicacion = lista
         }
       );
   }

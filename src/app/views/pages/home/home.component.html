@@ -30,7 +30,8 @@
               <p class="tweet-text">{{art.texto}}</p>
 
               <small class="text-muted">{{art.fecha}}</small>
-              <a class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</a>
+              <a *ngIf="art.tienelike ==='{0}'" class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'heart']" style="border-color:#E57373; border: 1px;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</a>
+              <a *ngIf="art.tienelike ==='{1}'" class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</a>
 
             </div>
           </div>
