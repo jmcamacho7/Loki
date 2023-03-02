@@ -23,6 +23,7 @@ import { BuscadorComponent } from './views/pages/buscador/buscador.component';
 import {BuscadorService} from "./shared/services/buscador.service";
 import { ChatComponent } from './views/pages/chat/chat.component';
 import { PerfildesconocidoComponent } from './views/pages/perfildesconocido/perfildesconocido.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const appRoutes:Routes=[
   {path: 'registro', component: InicioComponent},
@@ -54,7 +55,8 @@ const appRoutes:Routes=[
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [AuthService, PruebaService, RestService, BuscadorService],
   bootstrap: [AppComponent]

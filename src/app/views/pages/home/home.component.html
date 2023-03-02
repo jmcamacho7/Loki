@@ -20,7 +20,7 @@
     </div>
 
     <div *ngIf="publicacion!=null; else espera">
-      <div class="row" *ngFor="let art of publicacion">
+      <div class="row" *ngFor="let art of publicacion | paginate: { itemsPerPage: 6, currentPage: p, totalItems: total }">
         <div class="container">
           <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
             <img src="{{art.usuarioId.foto}}" class="profile-picture">
@@ -37,9 +37,10 @@
           </div>
         </div>
       </div>
+      <div style="float: left ; position: relative ; left: 40%"><pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls></div>
     </div>
+    <br>
     <div style="padding-top: 10vh;">
-
     </div>
     <ng-template #espera >
       <div class="spinner">

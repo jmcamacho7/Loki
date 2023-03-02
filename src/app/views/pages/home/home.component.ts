@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {style} from "@angular/animations";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {HomeService} from "./home.service";
 import {Router} from "@angular/router";
 import { concatMap } from 'rxjs/operators';
 import {of} from "rxjs";
+import {PublicacionService} from "../../../services/publicacion.service";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {of} from "rxjs";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   publicacion: any;
   publicaciones: any;
   foto: any;
@@ -20,8 +21,27 @@ export class HomeComponent {
   like={
     'id': ''
   }
+  p: number = 1;
+  total: number = 0;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private service:PublicacionService, private router: Router) { }
+
+  ngOnInit2() {
+    this.getPublicacion();
+  }
+
+  getPublicacion(){
+    this.service.getPublicacion(this.p)
+      .subscribe((response: any) => {
+        this.publicacion = response.data;
+        this.total = response.total;
+      });
+  }
+
+  pageChangeEvent(event: number){
+    this.p = event;
+    this.getPublicacion();
+  }
 
   comprobarLike(JSON: any, Lista: Array<any>) {
     const id = JSON.id;
@@ -58,6 +78,7 @@ export class HomeComponent {
           for (const publi of this.publicaciones){
             this.comprobarLike(publi, lista)
           }
+          this.getPublicacion();
           console.log(lista)
           this.publicacion = lista
         }
