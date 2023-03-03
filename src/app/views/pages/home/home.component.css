@@ -108,4 +108,57 @@ body{
     transform: rotate(360deg);
   }
 }
+.button-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button1.button {
+  width: 50%;
+  height: 10%;
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  border-right: 1px solid whitesmoke;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#button2.button {
+  width: 50%;
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  border-left: 1px solid whitesmoke;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#like{
+  display: block;
+}
+
+#dislike{
+  display: block;
+}
+
+li.current {
+  background: lightcoral;
+  color: whitesmoke;
+}
+
+
 

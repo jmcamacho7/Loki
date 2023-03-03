@@ -7,15 +7,16 @@
 <div class="container-fluid" id="cuerpo" style="background-color: white">
   <main role="main" class=".justify-content-center">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom fixed-top" style="margin: 0; background-color: whitesmoke;">
-      <h1 class="h2" style="margin-left: 5vh; font-family: 'Times New Roman'">Publicaciones</h1>
+      <h1 class="h2" style="margin-left: 5vh;">Publicaciones</h1>
       <img class="end-0" src="assets/Logo.png" style="width: 10vw;  margin-right: 5vh;">
-      <div>
-        <button style="width: 50%">Para ti</button>
-        <button style="width: 50%">Todo</button>
-      </div>
+    </div>
+    <div class="button-container">
+      <button class="button" id="button1">Para ti</button>
+      <button class="button" id="button2">Todo</button>
     </div>
 
-    <div style="padding-top: 11vh;">
+
+    <div style="padding-top: 20vh;">
 
     </div>
 
@@ -30,17 +31,17 @@
               <p class="tweet-text">{{art.texto}}</p>
 
               <small class="text-muted">{{art.fecha}}</small>
-              <a *ngIf="art.tienelike ==='{0}'" class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'heart']" style="border-color:#E57373; border: 1px;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</a>
-              <a *ngIf="art.tienelike ==='{1}'" class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</a>
+              <button style="border-color: transparent; background-color: transparent;" *ngIf="art.tiene === false" class="nav-link active" aria-current="page" id="like" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="border-color:#E57373; border: 1px;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
+              <button *ngIf="art.tiene === true" class="nav-link active" aria-current="page" id="dislike" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
 
             </div>
           </div>
         </div>
       </div>
-      <div style="float: left ; position: relative ; left: 40%"><pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls></div>
+      <div style="float: left ; position: relative ; left: 40%; color: lightcoral;"><pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls></div>
     </div>
     <br>
-    <div style="padding-top: 10vh;">
+    <div style="padding-top: 15vh;">
     </div>
     <ng-template #espera >
       <div class="spinner">
