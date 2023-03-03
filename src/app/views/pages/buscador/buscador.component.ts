@@ -22,7 +22,7 @@ export class BuscadorComponent {
     const params = new HttpParams().set('nombre', localStorage.getItem('busqueda')!)
     console.log(params)
     // @ts-ignore
-    this.http.get('http://localhost:8000/api/usuario/buscar', {params: params})
+    this.http.get('http://localhost:8000/api/usuario/buscar2', {params: params})
       .subscribe(
         resultado => {
           console.log(resultado)
