@@ -11,8 +11,8 @@
       <img class="end-0" src="assets/Logo.png" style="width: 10vw;  margin-right: 5vh;">
     </div>
     <div class="button-container">
-      <button class="button" id="button1">Para ti</button>
-      <button class="button" id="button2">Todo</button>
+      <button class="button" id="button1" (click)="verAmigos()">Para ti</button>
+      <button class="button" id="button2" (click)="verTodas()">Todo</button>
     </div>
 
 
@@ -20,7 +20,7 @@
 
     </div>
 
-    <div *ngIf="publicacion!=null; else espera">
+    <div id="amigos" *ngIf="publicacion!=null; else espera">
       <div class="row" *ngFor="let art of publicacion | paginate: { itemsPerPage: 6, currentPage: p, totalItems: total }">
         <div class="container">
           <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
@@ -32,7 +32,28 @@
 
               <small class="text-muted">{{art.fecha}}</small>
               <button style="border-color: transparent; background-color: transparent;" *ngIf="art.tiene === false" class="nav-link active" aria-current="page" id="like" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="border-color:#E57373; border: 1px;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
-              <button *ngIf="art.tiene === true" class="nav-link active" aria-current="page" id="dislike" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
+              <button style="border-color: transparent; background-color: transparent;" *ngIf="art.tiene === true" class="nav-link active" aria-current="page" id="dislike" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="float: left ; position: relative ; left: 40%; color: lightcoral;"><pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls></div>
+    </div>
+
+    <div id="todas" *ngIf="mundo!=null; else espera">
+      <div class="row" *ngFor="let art of mundo | paginate: { itemsPerPage: 6, currentPage: p, totalItems: total }">
+        <div class="container">
+          <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
+            <img src="{{art.usuarioId.foto}}" class="profile-picture">
+            <div class="tweet-info">
+              <button style="color: black; text-decoration:none; border: 0px; background-color: transparent; font-weight: bold" (click)="abrirPerfil(art.usuarioId.id)"><h4 class="name">{{art.usuarioId.nombre}}</h4></button>
+              <p class="username">{{art.usuarioId.usuario}}</p>
+              <p class="tweet-text">{{art.texto}}</p>
+
+              <small class="text-muted">{{art.fecha}}</small>
+              <button style="border-color: transparent; background-color: transparent;" *ngIf="art.tiene === false" class="nav-link active" aria-current="page" id="like" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="border-color:#E57373; border: 1px;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
+              <button style="border-color: transparent; background-color: transparent;" *ngIf="art.tiene === true" class="nav-link active" aria-current="page" id="dislike" (click)="likes(art.id)"><fa-icon [icon]="['fas', 'heart']" style="Color:#E57373;  hover-color: #E54A73; width: 100px; margin-right: 10px;"></fa-icon><b>Likes:</b> {{art.likes}}</button>
 
             </div>
           </div>

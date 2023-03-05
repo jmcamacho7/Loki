@@ -147,12 +147,12 @@ body{
   cursor: pointer;
 }
 
-#like{
+#amigos{
   display: block;
 }
 
-#dislike{
-  display: block;
+#todas{
+  display: none;
 }
 
 li.current {

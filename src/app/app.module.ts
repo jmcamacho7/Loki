@@ -24,6 +24,7 @@ import {BuscadorService} from "./shared/services/buscador.service";
 import { ChatComponent } from './views/pages/chat/chat.component';
 import { PerfildesconocidoComponent } from './views/pages/perfildesconocido/perfildesconocido.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditarComponent } from './views/pages/editar/editar.component';
 
 const appRoutes:Routes=[
   {path: 'registro', component: InicioComponent},
@@ -46,7 +47,8 @@ const appRoutes:Routes=[
     PerfilComponent,
     BuscadorComponent,
     ChatComponent,
-    PerfildesconocidoComponent
+    PerfildesconocidoComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

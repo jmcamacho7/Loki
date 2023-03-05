@@ -74,4 +74,17 @@ export class PerfilComponent {
 
   }
 
+  verEditar(){
+    const perfil:any = document.getElementById('perfil')
+    const editarperfil:any = document.getElementById('editarperfil')
+    perfil.style.display = 'none'
+    editarperfil.style.display = 'block'
+  }
+  verPerfil(){
+    const perfil:any = document.getElementById('perfil')
+    const editarperfil:any = document.getElementById('editarperfil')
+    perfil.style.display = 'block'
+    editarperfil.style.display = 'none'
+  }
+
 }

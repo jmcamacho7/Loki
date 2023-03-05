@@ -15,6 +15,8 @@ import {PublicacionService} from "../../../services/publicacion.service";
 })
 export class HomeComponent implements OnInit{
   publicacion: any;
+
+  mundo: any;
   foto: any;
 
   like={
@@ -55,11 +57,40 @@ export class HomeComponent implements OnInit{
 
           this.publicacion = resultado;
           console.log(this.publicacion);
+          this.publicacion.sort((a:any, b:any) => {
+            return (new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+          });
           this.getPublicacion();
 
         }
       );
+    this.http.get("http://localhost:8000/api/publicacion/list", {headers})
+      .subscribe(
+        resultado => {
+          // @ts-ignore
+          this.mundo = resultado;
+          console.log(this.mundo);
+          this.mundo.sort((a:any, b:any) => {
+            return (new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+          });
+          this.getPublicacion();
+        }
+      );
   }
+
+  verTodas(){
+    const todas:any = document.getElementById('todas')
+    const amigos:any = document.getElementById('amigos')
+    amigos.style.display = 'none'
+    todas.style.display = 'block'
+  }
+  verAmigos(){
+    const todas:any = document.getElementById('todas')
+    const amigos:any = document.getElementById('amigos')
+    amigos.style.display = 'block'
+    todas.style.display = 'none'
+  }
+
   abrirPerfil(id:string){
     localStorage.setItem('idUsuario', id)
     console.log(localStorage.getItem('idUsuario'))
@@ -82,10 +113,10 @@ export class HomeComponent implements OnInit{
         error => {
           if (error.status === 200) {
             // @ts-ignore
-            this.refreshPage()
+            this.ngOnInit()
           }
           if (error.status === 300){
-            this.refreshPage()
+            this.ngOnInit()
           }
         });
   }
