@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-perfil',
@@ -85,6 +85,35 @@ export class PerfilComponent {
     const editarperfil:any = document.getElementById('editarperfil')
     perfil.style.display = 'block'
     editarperfil.style.display = 'none'
+  }
+  modificar={
+    nick:'',
+    usuario:'',
+    nombre:'',
+    fecha:'',
+    telefono:'',
+    foto:'',
+    encabezado:''
+  }
+  modificarUsuario(){
+    const token: string | null = localStorage.getItem('token')
+    const headers = new HttpHeaders({'apikey': token!})
+    const body = JSON.stringify(
+      {
+        'nick':this.modificar.nick,
+        'usuario':this.modificar.usuario,
+        'nombre':this.modificar.nombre,
+        'fecha':this.modificar.fecha,
+        'telefono':this.modificar.telefono,
+        'foto':this.modificar.foto,
+        'encabezado':this.modificar.encabezado
+      })
+    console.log(body)
+    // const params = new HttpParams()
+    // this.http.post('http://localhost:8000/api/usuario/registrar', body, {headers: headers, params: params})
+    //   .subscribe((res) => console.log(res))
+    // const logro:any = document.getElementById('logro');
+    // logro.style.display = 'block';
   }
 
 }

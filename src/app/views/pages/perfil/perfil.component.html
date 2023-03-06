@@ -68,28 +68,28 @@
   <h1>Editar perfil</h1>
   <button style="background-color: transparent; border-color: transparent; border: 0px; margin: 0;" (click)="verPerfil()"><fa-icon [icon]="['fas', 'xmark']" style="color: whitesmoke"></fa-icon></button>
   <form>
-    <label for="nick">Nick:</label>
-    <input type="text" id="nick" name="nick" required>
+    <label for="nick">Sobre mí:</label>
+    <input type="text" id="nick" name="nick" value="{{perfil.nick}}" required [(ngModel)]="modificar.nick">
 
     <label for="usuario">Usuario:</label>
-    <input type="text" id="usuario" name="usuario" required>
+    <input type="text" id="usuario" name="usuario" value="{{perfil.usuario}}" required [(ngModel)]="modificar.usuario">
 
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <input type="text" id="nombre" name="nombre" value="{{perfil.nombre}}" required [(ngModel)]="modificar.nombre">
 
     <label for="fecha">Fecha:</label>
-    <input type="text" id="fecha" name="fecha" required>
+    <input type="text" id="fecha" name="fecha" value="{{perfil.fecha}}" required [(ngModel)]="modificar.fecha">
 
     <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" name="telefono" required>
+    <input type="text" id="telefono" name="telefono" value="{{perfil.telefono}}" required [(ngModel)]="modificar.telefono">
 
     <label for="foto">Foto:</label>
-    <input type="text" id="foto" name="foto" required>
+    <input type="text" id="foto" name="foto" value="{{perfil.foto}}" required [(ngModel)]="modificar.foto">
 
     <label for="encabezado">Encabezado:</label>
-    <textarea id="encabezado" name="encabezado" rows="4" required></textarea>
+    <textarea id="encabezado" name="encabezado" rows="4" value="{{perfil.encabezado}}" required [(ngModel)]="modificar.encabezado"></textarea>
 
-    <button type="submit">Enviar</button>
+    <button type="submit" (click)="modificarUsuario()">Enviar</button>
   </form>
 </div>
 <ng-template #espera >
