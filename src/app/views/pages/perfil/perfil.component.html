@@ -1,11 +1,11 @@
-<div class="row py-5 px-4" *ngIf="perfil!=null; else espera" style="background-color: white">
+<div id="perfil" class="row py-5 px-4" *ngIf="perfil!=null; else espera" style="background-color: white">
   <div>
     <div class="bg-white shadow rounded overflow-hidden">
       <div class="px-4 pt-0 pb-4 cover" [style.background-image]="perfil.encabezado ? 'url(' + perfil.encabezado + ')' : 'url(https://wallpapers.com/images/high/pixel-beach-sp79t5xnmjohyfen.webp)'">
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             <img src="{{perfil.foto}}" alt="..." width="130" class="img-thumbnail" style="border-radius: 50%; border-color: lightcoral; border-width: 5px;">
-            <a href="#" class="btn btn-outline-dark btn-sm btn-block" style="margin-top: 5px;">Editar</a>
+            <button (click)="verEditar()" class="btn btn-outline-dark btn-sm btn-block" style="margin-top: 5px; padding-top: 5px; padding-bottom: 5px;">Editar</button>
           </div>
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0">{{perfil.nombre}}</h4>
@@ -63,6 +63,34 @@
 </div>
 <div style="padding-top: 11vh;">
 
+</div>
+<div id="editarperfil" style="margin-right: 25px; margin-left: 25px;">
+  <h1>Editar perfil</h1>
+  <button style="background-color: transparent; border-color: transparent; border: 0px; margin: 0;" (click)="verPerfil()"><fa-icon [icon]="['fas', 'xmark']" style="color: whitesmoke"></fa-icon></button>
+  <form>
+    <label for="nick">Nick:</label>
+    <input type="text" id="nick" name="nick" required>
+
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" required>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="fecha">Fecha:</label>
+    <input type="text" id="fecha" name="fecha" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" name="telefono" required>
+
+    <label for="foto">Foto:</label>
+    <input type="text" id="foto" name="foto" required>
+
+    <label for="encabezado">Encabezado:</label>
+    <textarea id="encabezado" name="encabezado" rows="4" required></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
 </div>
 <ng-template #espera >
   <div class="spinner">

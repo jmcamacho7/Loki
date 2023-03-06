@@ -13,7 +13,7 @@ import { PerfilComponent } from './views/pages/perfil/perfil.component';
 import {FontAwesomeModule, FaIconLibrary,} from '@fortawesome/angular-fontawesome';
 import {faStackOverflow, faGithub, faMedium,} from '@fortawesome/free-brands-svg-icons';
 import {HttpClientModule} from '@angular/common/http';
-import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark, faSearch, faHeart} from '@fortawesome/free-solid-svg-icons';
+import {faHome, faMessage, faBell, faWrench, faPerson, faPlus, faShare, faXmark, faSearch, faHeart, faSignOut} from '@fortawesome/free-solid-svg-icons';
 import {FormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import {AuthService} from "./shared/services/auth.service";
@@ -23,6 +23,8 @@ import { BuscadorComponent } from './views/pages/buscador/buscador.component';
 import {BuscadorService} from "./shared/services/buscador.service";
 import { ChatComponent } from './views/pages/chat/chat.component';
 import { PerfildesconocidoComponent } from './views/pages/perfildesconocido/perfildesconocido.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { EditarComponent } from './views/pages/editar/editar.component';
 
 const appRoutes:Routes=[
   {path: 'registro', component: InicioComponent},
@@ -45,7 +47,8 @@ const appRoutes:Routes=[
     PerfilComponent,
     BuscadorComponent,
     ChatComponent,
-    PerfildesconocidoComponent
+    PerfildesconocidoComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ const appRoutes:Routes=[
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [AuthService, PruebaService, RestService, BuscadorService],
   bootstrap: [AppComponent]
@@ -74,7 +78,8 @@ export class AppModule {
       faShare,
       faXmark,
       faSearch,
-      faHeart
+      faHeart,
+      faSignOut
     );
   }
 }
