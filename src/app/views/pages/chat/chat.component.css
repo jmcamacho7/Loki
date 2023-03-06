@@ -110,11 +110,8 @@ body{
 }
 
 .chat-container {
-  position: relative;
-  height: calc(100vh - 60px);
   padding: 20px;
-  overflow-y: scroll;
-  box-sizing: border-box;
+  background-color: white;
 }
 
 .message {
@@ -174,6 +171,7 @@ body{
 
 #chat{
   display: none;
+
 }
 
 #todoschat{

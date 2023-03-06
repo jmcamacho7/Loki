@@ -10,7 +10,21 @@
         <h1 class="h2" style="margin-left: 5vh;">Tus chats</h1>
         <img class="end-0" src="assets/Logo.png" style="width: 10vw;  margin-right: 5vh;">
       </div>
+
       <div style="padding-top: 11vh;">
+        <div class="row">
+          <div class="container">
+            <div class="tweet" style="border-top: 1px solid lightcoral; border-bottom: 1px solid lightcoral;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" class="profile-picture">
+              <div class="tweet-info">
+                <button style="color: black; text-decoration:none; border: 0px; background-color: transparent; font-weight: bold" (click)="abrirChat(0)"><h4 class="name">ChatGPT</h4></button>
+                <p class="username">ChatGPT</p>
+                <p class="tweet-text"><b>Sobre mí:</b> ¡Hola! Soy ChatGPT.</p>
+                <small class="text-muted"></small>
+              </div>
+            </div>
+          </div>
+        </div>
         <div *ngIf="listaUsuarios!=null; else espera">
           <div class="row" *ngFor="let art of listaUsuarios">
             <div class="container">
@@ -38,17 +52,24 @@
           <div *ngFor="let chat of conversacion">
               <div class="message other" *ngIf="chat.usuarioIdEmisor.id === idConver;">
                 {{chat.texto}}
+                <br>
+                <small class="text-muted">Enviado: {{chat.fecha}}</small>
               </div>
               <div class="message me" id="propio" *ngIf="chat.usuarioIdEmisor.id != idConver;">
                 {{chat.texto}}
+                <br>
+                <small class="text-muted">Enviado: {{chat.fecha}}</small>
               </div>
           </div>
+          <div style="padding-bottom: 30vh;">
+
+          </div>
           <div class="input-container" style="margin-bottom: 55px;">
-            <input type="text" placeholder="Escribe aquí tu mensaje">
-            <button type="submit">Enviar</button>
+            <input type="text" placeholder="Escribe aquí tu mensaje" [(ngModel)]="mensaje.texto">
+            <button type="submit" (click)="enviarMensaje()">Enviar</button>
           </div>
 
-        <div style="padding-top: 10vh;">
+        <div style="padding-top: 60vh;">
 
         </div>
     </div>
