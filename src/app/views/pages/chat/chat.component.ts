@@ -122,7 +122,7 @@ export class ChatComponent {
         this.refreshPage()
         this.mensaje.texto = ''
       });
-    if (idUsuario === 0){
+    if (idUsuario === 10){
       this.chatGPTenviar(this.mensaje.texto)
     }
 
