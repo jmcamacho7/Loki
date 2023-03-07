@@ -16,6 +16,17 @@ export class PerfilComponent {
     numeroSiguiendo: '',
     numeroSeguidores: ''
   }
+  modificar={
+    id:'',
+    nick:'',
+    usuario:'',
+    nombre:'',
+    fecha:'',
+    telefono:'',
+    foto:'',
+    encabezado:''
+  }
+
   constructor(private http: HttpClient) { }
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
@@ -28,7 +39,14 @@ export class PerfilComponent {
           // @ts-ignore
 
           this.perfil = resultado;
-          console.log(this.perfil);
+            console.log(this.perfil);
+            this.modificar.nick = this.perfil.nick;
+            this.modificar.usuario = this.perfil.usuario;
+            this.modificar.nombre = this.perfil.nombre;
+            this.modificar.fecha = this.perfil.fecha;
+            this.modificar.telefono = this.perfil.telefono;
+            this.modificar.foto = this.perfil.foto;
+            this.modificar.encabezado = this.perfil.encabezado;
         }
       );
 
@@ -71,35 +89,33 @@ export class PerfilComponent {
           }
         }
       );
-
   }
 
+
   verEditar(){
+
     const perfil:any = document.getElementById('perfil')
     const editarperfil:any = document.getElementById('editarperfil')
     perfil.style.display = 'none'
     editarperfil.style.display = 'block'
+
+
   }
+
   verPerfil(){
     const perfil:any = document.getElementById('perfil')
     const editarperfil:any = document.getElementById('editarperfil')
     perfil.style.display = 'block'
     editarperfil.style.display = 'none'
+
   }
-  modificar={
-    nick:'',
-    usuario:'',
-    nombre:'',
-    fecha:'',
-    telefono:'',
-    foto:'',
-    encabezado:''
-  }
+
   modificarUsuario(){
     const token: string | null = localStorage.getItem('token')
     const headers = new HttpHeaders({'apikey': token!})
     const body = JSON.stringify(
       {
+        'id':this.modificar.id,
         'nick':this.modificar.nick,
         'usuario':this.modificar.usuario,
         'nombre':this.modificar.nombre,
@@ -109,11 +125,13 @@ export class PerfilComponent {
         'encabezado':this.modificar.encabezado
       })
     console.log(body)
-    // const params = new HttpParams()
-    // this.http.post('http://localhost:8000/api/usuario/registrar', body, {headers: headers, params: params})
-    //   .subscribe((res) => console.log(res))
-    // const logro:any = document.getElementById('logro');
-    // logro.style.display = 'block';
+    const params = new HttpParams()
+    this.http.post('http://localhost:8000/api/usuario/editar', body, {headers: headers, params: params})
+      .subscribe((res) => console.log(res))
+
+    const perfil:any = document.getElementById('perfil')
+    const editarperfil:any = document.getElementById('editarperfil')
+    window.location.reload()
   }
 
 }
