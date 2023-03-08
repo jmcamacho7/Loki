@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Router} from "@angular/router";
 import { Configuration, OpenAIApi } from "openai";
+import axios from 'axios'
 
 
 
@@ -19,21 +20,69 @@ export class ChatComponent {
 
   constructor(private http: HttpClient, private router: Router) {
     const configuracion = new Configuration({
-      apiKey: '',
+      apiKey: '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',
     });
     this.openai = new OpenAIApi(configuracion);
   }
 
-  async chatInteligente(texto: any) {
-    const completion = await this.openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: texto }],
-    });
+  async fetchStream(stream:any) {
+    const reader = stream.getReader();
+    let charsReceived = 0;
+    const li = document.createElement("li");
 
-    console.log(completion)
+    // read() returns a promise that resolves
+    // when a value has been received
+
+
+    const result = await reader.read().then(
+      // @ts-ignore
+      function processText({ done, value }) {
+        // Result objects contain two properties:
+        // done  - true if the stream has already given you all its data.
+        // value - some data. Always undefined when done is true.
+        if (done) {
+          console.log("Stream complete");
+          return li.innerText;
+        }
+        // value for fetch streams is a Uint8Array
+        charsReceived += value.length;
+        const chunk = value;
+        console.log(`Received ${charsReceived} characters so far. Current chunk = ${chunk}`);
+        li.appendChild(document.createTextNode(chunk));
+        return reader.read().then(processText);
+      });
+    const list = result.split(",")
     // @ts-ignore
-   const respuesta = completion.choices.message.content;
-   this.enviarMensajeGPT(respuesta)
+    const numList = list.map((item) => {
+      return parseInt(item)
+    })
+    const text = String.fromCharCode(...numList);
+    const response = JSON.parse(text)
+    return response
+  }
+  async chatInteligente(params = {}) {
+    const DEFAULT_PARAMS = {
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: "Hello World" }],
+      // max_tokens: 4096,
+      temperature: 0,
+      // frequency_penalty: 1.0,
+      // stream: true,
+    };
+    const params_ = { ...DEFAULT_PARAMS, ...params };
+    const result = await fetch('https://api.openai.com/v1/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + String('')
+      },
+      body: JSON.stringify(params_)
+    });
+    const stream = result.body
+    const output = await this.fetchStream(stream);
+    console.log(output)
+    this.enviarMensajeGPT(output.choices.message)
+    ;
   }
 
   listaUsuarios: any;
@@ -146,7 +195,7 @@ export class ChatComponent {
     this.http.post('http://localhost:8000/api/chat/enviarMensajeChatGPT', body, {headers: headers})
       // @ts-ignore
       .subscribe(() => {
-        this.refreshPage()
+
         this.mensaje.texto = ''
       });
   }
