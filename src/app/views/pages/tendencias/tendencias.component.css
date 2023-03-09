@@ -151,9 +151,7 @@ body{
   display: block;
 }
 
-#todas{
-  display: none;
-}
+
 
 li.current {
   background: lightcoral;

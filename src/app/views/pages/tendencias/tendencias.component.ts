@@ -30,17 +30,7 @@ export class TendenciasComponent implements OnInit{
         resultado => {
           // @ts-ignore
 
-          this.publicacion = resultado;
-          console.log(this.tag);
-        }
-      );
-    this.http.get("http://localhost:8000/api/tags/listar", {headers})
-      .subscribe(
-        resultado => {
-          // @ts-ignore
-          this.tag = resultado.reverse();
-          // @ts-ignore
-
+          this.tag = resultado;
           console.log(this.tag);
         }
       );
