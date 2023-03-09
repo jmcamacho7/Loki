@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Router} from "@angular/router";
 import { Configuration, OpenAIApi } from "openai";
-import axios from 'axios'
 import {filter, from, map} from "rxjs";
 
 function chatInteligente(query: string): Promise<string> {
@@ -10,7 +9,7 @@ function chatInteligente(query: string): Promise<string> {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer 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",
+      "Authorization": "Bearer ",
     },
     body: JSON.stringify({ model: "gpt-3.5-turbo", messages: [{ "role": "user", "content": query }] })
   })
