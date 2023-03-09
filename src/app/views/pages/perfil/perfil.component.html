@@ -40,7 +40,6 @@
       <div class="py-4 px-4">
         <div class="d-flex align-items-center justify-content-between mb-3">
           <h5 class="mb-0">Tidals recientes</h5>
-          <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
         <div>
           <div class="row" *ngFor="let art of tidals">
@@ -65,7 +64,10 @@
 
 </div>
 <div id="editarperfil" style="margin-right: 25px; margin-left: 25px;">
-  <h1>Editar perfil</h1>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom fixed-top" style="margin: 0; background-color: whitesmoke;">
+    <h1 class="h2" style="margin-left: 5vh;">Publicaciones</h1>
+    <img class="end-0" src="assets/Logo.png" style="width: 10vw;  margin-right: 5vh;">
+  </div>
   <button style="background-color: transparent; border-color: transparent; border: 0px; margin: 0;" (click)="verPerfil()"><fa-icon [icon]="['fas', 'xmark']" style="color: whitesmoke"></fa-icon></button>
   <form>
     <label for="nick">Sobre mí:</label>
@@ -91,6 +93,9 @@
 
     <button type="submit" (click)="modificarUsuario()">Enviar</button>
   </form>
+  <div style="padding-top: 11vh;">
+
+  </div>
 </div>
 <ng-template #espera >
   <div class="spinner">

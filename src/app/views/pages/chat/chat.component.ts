@@ -4,47 +4,6 @@ import {Router} from "@angular/router";
 import { Configuration, OpenAIApi } from "openai";
 import {filter, from, map} from "rxjs";
 
-function chatInteligente(query: string): Promise<string> {
-  return fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer ",
-    },
-    body: JSON.stringify({ model: "gpt-3.5-turbo", messages: [{ "role": "user", "content": query }] })
-  })
-    .then(response => {
-      if (!response.ok) throw new Error("Not ok");
-      return response.json() as Promise<ChatGPTResponse>;
-    })
-    .then(response => response.choices[0].message.content);
-}
-
-
-interface ChatGPTResponse {
-  id: string;
-  object: string;
-  created: number;
-  choices: Choice[];
-  usage: Usage;
-}
-
-interface Choice {
-  index: number;
-  message: Message;
-  finish_reason: string;
-}
-
-interface Message {
-  role: string;
-  content: string;
-}
-
-interface Usage {
-  prompt_tokens: number;
-  completion_tokens: number;
-  total_tokens: number;
-}
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -57,9 +16,30 @@ export class ChatComponent {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-
-
-
+  async chatInteligente (text:any){
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + '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'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a very funny comedian',
+          },
+          {
+            role: 'user',
+            content: 'Tell me a joke',
+          },
+        ],
+      }),
+    })
+    console.log(response)
+  }
 
 
 
@@ -151,7 +131,7 @@ export class ChatComponent {
       // @ts-ignore
       .subscribe(() => {
         if (idUsuario === 10) {
-          chatInteligente(this.mensaje.texto)
+          this.chatInteligente(this.mensaje.texto)
         }
         else{
           this.refreshPage()

@@ -57,13 +57,13 @@
           <a class="nav-link active" aria-current="page" routerLink="/perfil"><fa-icon [icon]="['fas', 'person']" style="Color:#E57373; hover-color: #E54A73; hover-color: #E54A73;"></fa-icon></a>
         </li>
         <li class="nav-item" style="margin-left: 1vw; margin-right: 1vw;">
-          <a class="nav-link" href="#"><fa-icon [icon]="['fas', 'bell']" style="Color:#E57373; hover-color: #E54A73; hover-color: #E54A73;"></fa-icon></a>
+          <a class="nav-link" routerLink="/tendencias"><fa-icon [icon]="['fas', 'hashtag']" style="Color:#E57373; hover-color: #E54A73; hover-color: #E54A73;"></fa-icon></a>
         </li>
         <li class="nav-item" style="margin-left: 1vw; margin-right: 1vw;">
-          <a class="nav-link" href="#"><fa-icon [icon]="['fas', 'message']" style="Color:#E57373;  hover-color: #E54A73;"></fa-icon></a>
+          <a class="nav-link" routerLink="/chat"><fa-icon [icon]="['fas', 'message']" style="Color:#E57373;  hover-color: #E54A73;"></fa-icon></a>
         </li>
         <li class="nav-item" style="margin-left: 1vw; margin-right: 1vw;">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><fa-icon [icon]="['fas', 'sign-out']" style="Color:#E57373;  hover-color: #E54A73;"></fa-icon></a>
+          <button style="background-color: transparent; border-color: transparent;" class="nav-link" href="#" tabindex="-1" aria-disabled="true" (click)="logOut()"><fa-icon [icon]="['fas', 'sign-out']" style="Color:#E57373;  hover-color: #E54A73;"></fa-icon></button>
         </li>
       </ul>
     </div>

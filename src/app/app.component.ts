@@ -100,6 +100,11 @@ export class AppComponent {
     }
   }
 
+  logOut(){
+    localStorage.setItem('token', '')
+    this.router.navigate(['/inicio-sesion'])
+  }
+
 }
 
 import { IonicModule } from '@ionic/angular';
