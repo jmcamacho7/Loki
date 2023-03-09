@@ -134,4 +134,19 @@ export class PerfilComponent {
     window.location.reload()
   }
 
+
+  borrarUsuario(){
+
+    const token: string | null = localStorage.getItem('token')
+    const headers = new HttpHeaders({'apikey': token!})
+    const params = new HttpParams()
+    const body = JSON.stringify(
+      {
+        'id':this.modificar.id,
+      })
+    this.http.post('http://localhost:8000/api/usuario/delete', body, {headers: headers})
+      .subscribe((res) => console.log(res))
+    window.location.reload()
+  }
+
 }
