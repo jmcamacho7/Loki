@@ -25,6 +25,7 @@ import { ChatComponent } from './views/pages/chat/chat.component';
 import { PerfildesconocidoComponent } from './views/pages/perfildesconocido/perfildesconocido.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EditarComponent } from './views/pages/editar/editar.component';
+import {TendenciasComponent} from "./views/pages/tendencias/tendencias.component";
 
 const appRoutes:Routes=[
   {path: 'registro', component: InicioComponent},
@@ -35,6 +36,7 @@ const appRoutes:Routes=[
   {path: 'busqueda', component: BuscadorComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'perfil-usuario', component: PerfildesconocidoComponent},
+  {path: 'tendencias', component: TendenciasComponent},
 
 ];
 @NgModule({
@@ -48,7 +50,8 @@ const appRoutes:Routes=[
     BuscadorComponent,
     ChatComponent,
     PerfildesconocidoComponent,
-    EditarComponent
+    EditarComponent,
+    TendenciasComponent
   ],
   imports: [
     BrowserModule,
