@@ -16,33 +16,6 @@ export class ChatComponent {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  async chatInteligente (text:any){
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + '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'
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a very funny comedian',
-          },
-          {
-            role: 'user',
-            content: 'Tell me a joke',
-          },
-        ],
-      }),
-    })
-    console.log(response)
-  }
-
-
-
   listaUsuarios: any;
   conversacion: any;
 
@@ -56,8 +29,6 @@ export class ChatComponent {
   }
 
   gptMensaje: any;
-
-
 
   ngOnInit() {
     const token: string | null = localStorage.getItem('token')
@@ -74,6 +45,25 @@ export class ChatComponent {
         }
       );
   }
+
+  async chatInteligente(texto: string) {
+    const body = JSON.stringify({
+      'texto': texto
+    });
+
+    try {
+      const data = await this.http.post("http://localhost:8000/api/chat/postGPT", body).toPromise();
+
+      console.log(data)
+      // @ts-ignore
+      this.gptMensaje = data.choices[0].message.content;
+      console.log(this.gptMensaje);
+      this.enviarMensajeGPT(this.gptMensaje);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 
   abrirChat(id:any){
     const todoschat:any = document.getElementById('todoschat');
@@ -131,6 +121,7 @@ export class ChatComponent {
       // @ts-ignore
       .subscribe(() => {
         if (idUsuario === 10) {
+          console.log(this.mensaje.texto)
           this.chatInteligente(this.mensaje.texto)
         }
         else{
@@ -153,8 +144,8 @@ export class ChatComponent {
     this.http.post('http://localhost:8000/api/chat/enviarMensajeChatGPT', body, {headers: headers})
       // @ts-ignore
       .subscribe(() => {
-
         this.mensaje.texto = ''
+        this.refreshPage()
       });
   }
 
